@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Tasks
+{% endblock %}
+
+{% block body %}
+    <h1> Task list </h1>
+
+    {% if pagination is defined and pagination.items|length %}
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> {{ knp_pagination_sortable(pagination, 'ID', 'task.id') }} </th>
+                    <th> {{ knp_pagination_sortable(pagination, 'Created At', 'task.createdAt') }} </th>
+                    <th> {{ knp_pagination_sortable(pagination, 'Updated At', 'task.updatedAt') }} </th>
+                    <th> {{ knp_pagination_sortable(pagination, 'Title', 'task.title') }} </th>
+                    <th scope="col"> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for task in pagination.items %}
+                <tr>
+                    <td> {{ task.id}} </td>
+                    <td> {{ task.createdAt|date('Y-m-d') }} </td>
+                    <td> {{ task.updatedAt|date('Y-m-d')}} </td>
+                    <td> {{ task.title }} </td>
+                    <td>
+                        <a href="{{ url('task_show', {id: task.id}) }}" title="Open">
+                            Open
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        <h1> List is empty! </h1>
+    {% endif %}
+
+{% endblock %}

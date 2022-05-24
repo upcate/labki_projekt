@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    One task
+{% endblock %}
+
+{% block body %}
+    <h1> Task </h1>
+
+    {% if task is defined and task|length %}
+
+        <dl class="dl-horizontal">
+            <dt> ID </dt>
+            <dd> {{ task.id }} </dd>
+            <dt> Created at </dt>
+            <dd> {{ task.createdAt|date('Y-m-d') }} </dd>
+            <dt> Updated at </dt>
+            <dd> {{ task.updatedAt|date('Y-m-d') }} </dd>
+            <dt> Title </dt>
+            <dd> {{ task.title }} </dd>
+        </dl>
+        <p>
+            <a href="{{ url('task_index') }}" title="Back to list">
+                Back to list
+            </a>
+        </p>
+
+    {% else %}
+
+        <p>
+            Record not found!
+        </p>
+
+    {% endif %}
+
+{% endblock %}

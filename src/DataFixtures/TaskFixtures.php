@@ -19,15 +19,11 @@ class TaskFixtures extends Fixture
 {
     /**
      * Faker.
-     *
-     * @var Generator
      */
     protected Generator $faker;
 
     /**
      * Persistence object manager.
-     *
-     * @var ObjectManager
      */
     protected ObjectManager $manager;
 
