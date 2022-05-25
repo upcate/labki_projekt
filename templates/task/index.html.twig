@@ -20,6 +20,7 @@
                     <th> {{ knp_pagination_sortable(pagination, 'Created At', 'task.createdAt') }} </th>
                     <th> {{ knp_pagination_sortable(pagination, 'Updated At', 'task.updatedAt') }} </th>
                     <th> {{ knp_pagination_sortable(pagination, 'Title', 'task.title') }} </th>
+                    <th> {{ knp_pagination_sortable(pagination, 'Category', 'category.title') }} </th>
                     <th scope="col"> Actions </th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@
                     <td> {{ task.createdAt|date('Y-m-d') }} </td>
                     <td> {{ task.updatedAt|date('Y-m-d')}} </td>
                     <td> {{ task.title }} </td>
+                    <td> {{ task.category.title }} </td>
                     <td>
                         <a href="{{ url('task_show', {id: task.id}) }}" title="Open">
                             Open
