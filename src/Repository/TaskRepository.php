@@ -19,7 +19,11 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TaskRepository extends ServiceEntityRepository
 {
+<<<<<<< HEAD
     public const PAGINATOR_ITEMS_PER_PAGE = 5;
+=======
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
+>>>>>>> d8dfc60261e0f7cae5906033d2eb12d06db6048d
 
     public function __construct(ManagerRegistry $registry)
     {
@@ -29,6 +33,8 @@ class TaskRepository extends ServiceEntityRepository
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
+            ->select('partial task.{id, createdAt, updatedAt, title}', 'partial category.{id, title}')
+            ->join('task.category', 'category')
             ->orderBy('task.updatedAt', 'DESC');
     }
 
