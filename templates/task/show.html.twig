@@ -16,6 +16,8 @@
             <dd> {{ task.createdAt|date('Y-m-d') }} </dd>
             <dt> Updated at </dt>
             <dd> {{ task.updatedAt|date('Y-m-d') }} </dd>
+            <dt> Category </dt>
+            <dd> {{ task.category.title }} </dd>
             <dt> Title </dt>
             <dd> {{ task.title }} </dd>
         </dl>
