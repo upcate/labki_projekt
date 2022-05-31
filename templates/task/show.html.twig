@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    One task
+    {{ 'title.taskView'|trans({'%id%': task.id|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1> Task </h1>
+    <h1> {{ 'title.taskView'|trans({'%id%': task.id|default('')}) }} </h1>
 
     {% if task is defined and task|length %}
 
