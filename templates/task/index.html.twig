@@ -19,7 +19,7 @@
                     <th> {{ knp_pagination_sortable(pagination, 'ID', 'task.id') }} </th>
                     <th> {{ knp_pagination_sortable(pagination, 'Created At', 'task.createdAt') }} </th>
                     <th> {{ knp_pagination_sortable(pagination, 'Updated At', 'task.updatedAt') }} </th>
-                    <th> {{ knp_pagination_sortable(pagination, 'Title', 'task.title') }} </th>
+                    <th> {{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }} </th>
                     <th> {{ knp_pagination_sortable(pagination, 'Category', 'category.title') }} </th>
                     <th scope="col"> Actions </th>
                 </tr>

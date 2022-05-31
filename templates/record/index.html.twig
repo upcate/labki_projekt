@@ -24,7 +24,7 @@
             <tr>
                 <td> {{ record.id }} </td>
                 <td> {{ record.title}} </td>
-                <td> {{ record.tags|join(' ') }} </td>
+                <td> {{ record.tags|join(', ') }} </td>
                 <td>
                     <a href="{{ url('record_show', {'id': record.id}) }}" title="record show"> Record view </a>
                 </td>

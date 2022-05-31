@@ -42,11 +42,6 @@ class Ad
         return $this->ad_id;
     }
 
-    public function setAdId(int $ad_id): void
-    {
-        $this->ad_id = $ad_id;
-    }
-
     public function getIsVisible(): ?int
     {
         return $this->is_visible;
