@@ -17,9 +17,6 @@ class Ad
     private ?int $id;
 
     #[ORM\Column(type: 'integer')]
-    private ?int $ad_id;
-
-    #[ORM\Column(type: 'integer')]
     private ?int $is_visible;
 
     #[ORM\Column(type: 'string', length: 20)]
@@ -35,14 +32,12 @@ class Ad
     #[Gedmo\Timestampable(on: 'create')]
     private ?DateTimeImmutable $createdAt;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $text;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAdId(): ?int
-    {
-        return $this->ad_id;
     }
 
     public function getIsVisible(): ?int
@@ -93,5 +88,15 @@ class Ad
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(string $text): self
+    {
+        $this->text = $text;
     }
 }
