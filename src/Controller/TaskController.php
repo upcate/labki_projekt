@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Repository\TaskRepository;
-use App\Service\TaskService;
 use App\Service\TaskServiceInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/task')]
 class TaskController extends AbstractController
 {
-
     private TaskServiceInterface $taskService;
 
     public function __construct(TaskServiceInterface $taskService)
@@ -23,16 +21,13 @@ class TaskController extends AbstractController
         $this->taskService = $taskService;
     }
 
-    #[Route
-    (
+    #[Route(
         name: 'task_index',
         methods: 'GET'
     )]
-
     public function index(Request $request, TaskRepository $taskRepository, PaginatorInterface $paginator): Response
     {
-        $pagination = $this->taskService->getPaginatedList
-        (
+        $pagination = $this->taskService->getPaginatedList(
           $request->query->getInt('page', 1)
         );
 

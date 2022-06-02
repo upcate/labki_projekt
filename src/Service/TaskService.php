@@ -8,7 +8,6 @@ use Knp\Component\Pager\PaginatorInterface;
 
 class TaskService implements TaskServiceInterface
 {
-
     private TaskRepository $taskRepository;
     private PaginatorInterface $paginator;
 
@@ -20,12 +19,10 @@ class TaskService implements TaskServiceInterface
 
     public function getPaginatedList(int $page): PaginationInterface
     {
-        return $this->paginator->paginate
-        (
+        return $this->paginator->paginate(
             $this->taskRepository->queryAll(),
             $page,
             TaskRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
-
 }

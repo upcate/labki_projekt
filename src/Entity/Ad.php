@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\AdRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: AdRepository::class)]
 #[ORM\Table(name: 'ads')]
@@ -30,6 +32,7 @@ class Ad
     private ?int $phone;
 
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Gedmo\Timestampable(on: 'create')]
     private ?DateTimeImmutable $createdAt;
 
     public function getId(): ?int
