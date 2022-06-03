@@ -102,6 +102,30 @@
         <source>message.edited_successfully</source>
         <target>Zedytowano pomyślnie</target>
       </trans-unit>
+      <trans-unit id="label.username">
+        <source>label.username</source>
+        <target>Użytkownik</target>
+      </trans-unit>
+      <trans-unit id="label.phone">
+        <source>label.phone</source>
+        <target>Telefon</target>
+      </trans-unit>
+      <trans-unit id="label.email">
+        <source>label.email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="title.ad_list">
+        <source>title.ad_list</source>
+        <target>Lista Ogłoszeń</target>
+      </trans-unit>
+      <trans-unit id="action.view">
+        <source>action.view</source>
+        <target>Pokaż</target>
+      </trans-unit>
+      <trans-unit id="label.text">
+        <source>label.text</source>
+        <target>Treść</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

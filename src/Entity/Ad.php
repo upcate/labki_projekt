@@ -25,15 +25,22 @@ class Ad
     #[ORM\Column(type: 'string', length: 64)]
     private ?string $email;
 
-    #[ORM\Column(type: 'integer')]
-    private ?int $phone;
+    #[ORM\Column(type: 'string', length: 9)]
+    private ?string $phone;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $title;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $text;
 
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
     private ?DateTimeImmutable $createdAt;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $text;
+    #[ORM\Column(type: 'datetime_immutable')]
+    #[Gedmo\Timestampable(on: 'create')]
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -70,12 +77,12 @@ class Ad
         $this->email = $email;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(int $phone): void
+    public function setPhone(string $phone): void
     {
         $this->phone = $phone;
     }
@@ -95,8 +102,28 @@ class Ad
         return $this->text;
     }
 
-    public function setText(string $text): self
+    public function setText(string $text): void
     {
         $this->text = $text;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeImmutable $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
     }
 }
