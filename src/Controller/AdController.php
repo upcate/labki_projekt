@@ -7,7 +7,9 @@ namespace App\Controller;
 
 use App\Entity\Ad;
 use App\Repository\AdRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,14 +24,15 @@ class AdController extends AbstractController
         name: 'ad_index',
         methods: 'get'
     )]
-    public function index(AdRepository $adRepository): Response
+    public function index(Request $request, AdRepository $adRepository, PaginatorInterface $paginator): Response
     {
-        $ads = $adRepository->findAll();
-
-        return $this->render(
-            'ad/index.html.twig',
-            ['ads' => $ads]
+        $pagination = $paginator->paginate(
+            $adRepository->queryAll(),
+            $request->query->getInt('page', 1),
+            AdRepository::PAGINATOR_ITEMS_PER_PAGE
         );
+
+        return $this->render('ad/index.html.twig', ['pagination' => $pagination]);
     }
 
     #[Route(

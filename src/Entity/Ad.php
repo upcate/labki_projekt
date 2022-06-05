@@ -14,25 +14,25 @@ class Ad
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private ?int $id;
+    private ?int $id = null;
 
     #[ORM\Column(type: 'integer')]
-    private ?int $is_visible;
+    private ?int $is_visible = null;
 
     #[ORM\Column(type: 'string', length: 20)]
-    private ?string $username;
+    private ?string $username = null;
 
     #[ORM\Column(type: 'string', length: 64)]
-    private ?string $email;
+    private ?string $email = null;
 
     #[ORM\Column(type: 'string', length: 9)]
-    private ?string $phone;
+    private ?string $phone = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $title;
+    private ?string $title = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $text;
+    private ?string $text = null;
 
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
@@ -40,7 +40,11 @@ class Ad
 
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
-    private $updatedAt;
+    private ?DateTimeImmutable $updatedAt;
+
+    #[ORM\ManyToOne(targetEntity: AdCategory::class, fetch: 'EXTRA_LAZY')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?AdCategory $adCategory = null;
 
     public function getId(): ?int
     {
@@ -125,5 +129,15 @@ class Ad
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getAdCategory(): ?AdCategory
+    {
+        return $this->adCategory;
+    }
+
+    public function setAdCategory(?AdCategory $adCategory): void
+    {
+        $this->adCategory = $adCategory;
     }
 }

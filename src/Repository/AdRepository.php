@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Ad;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,6 +22,19 @@ class AdRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Ad::class);
+    }
+
+    public function queryAll(): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->select('partial ad.{id, createdAt, updatedAt, title, text, is_visible, phone}', 'partial adCategory.{id, name}')
+            ->join('ad.adCategory', 'adCategory')
+            ->orderBy('ad.updatedAt', 'DESC');
+    }
+
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('ad');
     }
 
     public function add(Ad $entity, bool $flush = false): void

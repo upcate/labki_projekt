@@ -24,6 +24,8 @@
             <dd>{{ ad.createdAt|date('Y/m/d') }}</dd>
             <dt>{{ 'label.updatedAt'|trans }}</dt>
             <dd>{{ ad.updatedAt|date('Y/m/d') }}</dd>
+            <dt>{{ 'label.category'|trans }}</dt>
+            <dd>{{ ad.adCategory.name }}</dd>
         </dl>
         <p>
             <a href="{{ url('ad_index') }}" title="{{ 'action.back_to_list'|trans }}">
