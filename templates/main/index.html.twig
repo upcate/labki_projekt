@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.main'|trans }}
+{% endblock %}
+
+{% block body %}
+    <a href="{{ url('ad_index') }}" title="{{ 'action.ad_list'|trans }}">
+        {{ 'action.ad_list'|trans }}
+    </a>
+
+    <br>
+
+    <a href="{{ url('adCategory_index') }}" title="{{ 'action.category_list'|trans }}">
+        {{ 'action.category_list'|trans }}
+    </a>
+
+{% endblock %}

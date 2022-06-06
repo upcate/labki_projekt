@@ -34,8 +34,6 @@ class CategoryService implements CategoryServiceInterface
 
     public function save(Category $category): void
     {
-
-
         $this->categoryRepository->save($category);
     }
 

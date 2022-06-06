@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\AdCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -16,9 +17,23 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class AdCategoryRepository extends ServiceEntityRepository
 {
+
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, AdCategory::class);
+    }
+
+    public function queryAll(): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->orderBy('adCategory.updatedAt', 'DESC');
+    }
+
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('adCategory');
     }
 
     public function add(AdCategory $entity, bool $flush = false): void
@@ -37,6 +52,18 @@ class AdCategoryRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function save(AdCategory $adCategory): void
+    {
+        $this->_em->persist($adCategory);
+        $this->_em->flush();
+    }
+
+    public function delete(AdCategory $adCategory): void
+    {
+        $this->_em->remove($adCategory);
+        $this->_em->flush();
     }
 
 //    /**

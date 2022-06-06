@@ -94,6 +94,10 @@
         <source>title.category_delete</source>
         <target>Usuń kategorię #%id%</target>
       </trans-unit>
+            <trans-unit id="title.adCategory_delete">
+              <source>title.adCategory_delete</source>
+              <target>Usuń kategorię %name%</target>
+            </trans-unit>
       <trans-unit id="message.deleted_successfully">
         <source>message.deleted_successfully</source>
         <target>Usunięto pomyślnie</target>
@@ -125,6 +129,26 @@
       <trans-unit id="label.text">
         <source>label.text</source>
         <target>Treść</target>
+      </trans-unit>
+      <trans-unit id="title.ad_categories">
+        <source>title.ad_categories</source>
+        <target>Kategorie Ogłoszeń</target>
+      </trans-unit>
+      <trans-unit id="label.name">
+        <source>label.name</source>
+        <target>Nazwa</target>
+      </trans-unit>
+      <trans-unit id="action.ad_list">
+        <source>action.ad_list</source>
+        <target>Ogłoszenia</target>
+      </trans-unit>
+      <trans-unit id="action.category_list">
+        <source>action.category_list</source>
+        <target>Kategorie</target>
+      </trans-unit>
+      <trans-unit id="action.edit">
+        <source>action.edit</source>
+        <target>Edytuj</target>
       </trans-unit>
     </body>
   </file>
