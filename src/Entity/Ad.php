@@ -6,6 +6,8 @@ use App\Repository\AdRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use DateTimeImmutable;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AdRepository::class)]
 #[ORM\Table(name: 'ads')]
@@ -17,21 +19,33 @@ class Ad
     private ?int $id = null;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\Type('integer')]
     private ?int $is_visible = null;
 
     #[ORM\Column(type: 'string', length: 20)]
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 20)]
     private ?string $username = null;
 
     #[ORM\Column(type: 'string', length: 64)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 64)]
     private ?string $email = null;
 
     #[ORM\Column(type: 'string', length: 9)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 9, max: 9)]
     private ?string $phone = null;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 64)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 64)]
     private ?string $title = null;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 255)]
     private ?string $text = null;
 
     #[ORM\Column(type: 'datetime_immutable')]
@@ -121,12 +135,12 @@ class Ad
         $this->title = $title;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?DateTimeImmutable
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): void
+    public function setUpdatedAt(DateTimeImmutable $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }

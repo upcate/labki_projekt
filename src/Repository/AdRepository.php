@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Ad;
+use App\Entity\AdCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -53,6 +54,29 @@ class AdRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function countByCategory(AdCategory $adCategory): int
+    {
+        $qb = $this->getOrCreateQueryBuilder();
+
+        return $qb->select($qb->expr()->countDistinct('ad.id'))
+            ->where('ad.adCategory = :adCategory')
+            ->setParameter(':adCategory', $adCategory)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function save(Ad $ad): void
+    {
+        $this->_em->persist($ad);
+        $this->_em->flush();
+    }
+
+    public function delete(Ad $ad): void
+    {
+        $this->_em->remove($ad);
+        $this->_em->flush();
     }
 
 //    /**

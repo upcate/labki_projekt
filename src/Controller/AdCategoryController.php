@@ -124,6 +124,16 @@ class AdCategoryController extends AbstractController
     )]
     public function delete(Request $request, AdCategory $adCategory): Response
     {
+
+        if(!$this->adCategoryService->canBeDeleted($adCategory)) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.category_contains_ads')
+            );
+
+            return $this->redirectToRoute('adCategory_index');
+        }
+
         $form = $this->createForm(FormType::class, $adCategory, [
             'method' => 'DELETE',
             'action' => $this->generateUrl('adCategory_delete', ['id' => $adCategory->getId()]),

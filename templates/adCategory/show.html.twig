@@ -22,16 +22,6 @@
                 {{ 'action.back_to_list'|trans }}
             </a>
         </p>
-        <p>
-            <a href="{{ url('adCategory_edit', {id: adCategory.id}) }}" title="{{ 'action.edit'|trans }}">
-                {{ 'action.edit'|trans }}
-            </a>
-        </p>
-        <p>
-            <a href="{{ url('adCategory_delete', {id: adCategory.id}) }}" title="{{ 'action.delete'|trans }}">
-                {{ 'action.delete'|trans }}
-            </a>
-        </p>
     {% else %}
         <p>
             {{ 'message.record_not_found'|trans }}

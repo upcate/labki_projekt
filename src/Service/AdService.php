@@ -4,6 +4,7 @@ namespace App\Service;
 
 
 
+use App\Entity\Ad;
 use App\Repository\AdRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -26,6 +27,16 @@ class AdService implements AdServiceInterface
             $page,
             AdRepository::PAGINATOR_ITEMS_PER_PAGE
         );
+    }
+
+    public function save(Ad $ad): void
+    {
+        $this->adRepository->save($ad);
+    }
+
+    public function delete(Ad $ad): void
+    {
+        $this->adRepository->delete($ad);
     }
 
 }

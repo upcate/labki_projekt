@@ -33,6 +33,14 @@
                         <a href="{{ url('adCategory_show', {id: adCategory.id}) }}" title="{{ 'action.view'|trans }}">
                             {{ 'action.view'|trans }}
                         </a>
+                        <br>
+                        <a href="{{ url('adCategory_edit', {id: adCategory.id}) }}" title="{{ 'action.edit'|trans }}">
+                            {{ 'action.edit'|trans }}
+                        </a>
+                        <br>
+                        <a href="{{ url('adCategory_delete', {id: adCategory.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
