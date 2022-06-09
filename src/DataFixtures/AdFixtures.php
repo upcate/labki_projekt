@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\AdCategory;
 use App\Entity\Ad;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;

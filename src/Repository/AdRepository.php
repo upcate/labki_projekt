@@ -28,7 +28,7 @@ class AdRepository extends ServiceEntityRepository
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->select('partial ad.{id, createdAt, updatedAt, title, text, is_visible, phone}', 'partial adCategory.{id, name}')
+            ->select('partial ad.{id, createdAt, updatedAt, title, text, is_visible, phone, username}', 'partial adCategory.{id, name}')
             ->join('ad.adCategory', 'adCategory')
             ->orderBy('ad.updatedAt', 'DESC');
     }

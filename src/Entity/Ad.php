@@ -30,7 +30,7 @@ class Ad
 
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\NotBlank]
-    #[Assert\Length(min: 3, max: 64)]
+    #[Assert\Email]
     private ?string $email = null;
 
     #[ORM\Column(type: 'string', length: 9)]
@@ -38,9 +38,9 @@ class Ad
     #[Assert\Length(min: 9, max: 9)]
     private ?string $phone = null;
 
-    #[ORM\Column(type: 'string', length: 64)]
+    #[ORM\Column(type: 'string', length: 128)]
     #[Assert\NotBlank]
-    #[Assert\Length(min: 3, max: 64)]
+    #[Assert\Length(min: 3, max: 128)]
     private ?string $title = null;
 
     #[ORM\Column(type: 'string', length: 255)]
