@@ -2,22 +2,27 @@
 
 namespace App\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/admin')]
-class TestController extends AbstractController
+class AdminController extends AbstractController
 {
+
     #[Route(
-        '/test',
-        name: 'admin_test'
+      '/panel',
+      name: 'admin_panel',
+      methods: 'get',
     )]
-    public function index(Request $request): Response
+    #[IsGranted('ROLE_ADMIN')]
+    public function panel(Request $request): Response
     {
         return $this->render(
-          'test/index.html.twig'
+          'admin/panel.html.twig'
         );
     }
+
 }

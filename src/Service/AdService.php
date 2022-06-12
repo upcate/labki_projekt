@@ -29,14 +29,41 @@ class AdService implements AdServiceInterface
         );
     }
 
+    public function getPaginatedAcceptList(int $page): PaginationInterface
+    {
+        return $this->paginator->paginate(
+            $this->adRepository->queryToAccept(),
+            $page,
+            AdRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+    }
+
     public function save(Ad $ad): void
     {
+        $this->adRepository->save($ad);
+    }
+
+    public function saveOnCreateAdm(Ad $ad): void
+    {
+        $ad->setIsVisible(1);
+        $this->adRepository->save($ad);
+    }
+
+    public function saveOnCreateUs(Ad $ad): void
+    {
+        $ad->setIsVisible(0);
         $this->adRepository->save($ad);
     }
 
     public function delete(Ad $ad): void
     {
         $this->adRepository->delete($ad);
+    }
+
+    public function makeVisible(Ad $ad): void
+    {
+        $ad->setIsVisible(1);
+        $this->adRepository->save($ad);
     }
 
 }

@@ -50,12 +50,13 @@
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
         </div>
-
+    {% if is_granted('ROLE_ADMIN') %}
         <p>
             <a href="{{ url('adCategory_create') }}" title="{{ 'title.category_create'|trans }}">
                 {{ 'title.category_create'|trans }}
             </a>
         </p>
+    {% endif %}
 
     {% else %}
         <p>

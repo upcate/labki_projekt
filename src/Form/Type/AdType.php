@@ -69,13 +69,6 @@ class AdType extends AbstractType
               'placeholder' => 'label.none',
               'required' => 'true',
           ]);
-        $builder->add(
-          'is_visible',
-          HiddenType::class,
-          [
-              'empty_data' => 0
-          ]
-        );
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\AdCategory;
 use App\Form\Type\AdCategoryType;
 use App\Service\AdCategoryServiceInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,6 +47,7 @@ class AdCategoryController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'get'
     )]
+    #[IsGranted('ROLE_ADMIN')]
     public function show(AdCategory $adCategory): Response
     {
         return $this->render(
@@ -59,6 +61,7 @@ class AdCategoryController extends AbstractController
         name: 'adCategory_create',
         methods: 'get|post'
     )]
+    #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request): Response
     {
         $adCategory = new AdCategory();
@@ -84,11 +87,12 @@ class AdCategoryController extends AbstractController
     }
 
     #[Route(
-        '/{id}/edit',
+        '/admin/{id}/edit',
         name: 'adCategory_edit',
         requirements: ['id' => '[1-9]\d*'],
         methods: 'get|put'
     )]
+    #[IsGranted('ROLE_ADMIN')]
     public function edit(Request $request, AdCategory $adCategory): Response
     {
         $form = $this->createForm(AdCategoryType::class, $adCategory, [
@@ -117,11 +121,13 @@ class AdCategoryController extends AbstractController
         );
     }
 
-    #[Route('/{id}/delete',
+    #[Route(
+        '/{id}/delete',
         name: 'adCategory_delete',
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|DELETE'
     )]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(Request $request, AdCategory $adCategory): Response
     {
 

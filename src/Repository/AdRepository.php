@@ -29,8 +29,18 @@ class AdRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->select('partial ad.{id, createdAt, updatedAt, title, text, is_visible, phone, username}', 'partial adCategory.{id, name}')
+            ->where('ad.is_visible = 1')
             ->join('ad.adCategory', 'adCategory')
             ->orderBy('ad.updatedAt', 'DESC');
+    }
+
+    public function queryToAccept(): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->select('partial ad.{id, createdAt, updatedAt, title, text, is_visible, phone, username}', 'partial adCategory.{id, name}')
+            ->where('ad.is_visible = 0')
+            ->join('ad.adCategory', 'adCategory')
+            ->orderBy('ad.createdAt', 'DESC');
     }
 
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder

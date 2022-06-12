@@ -150,6 +150,58 @@
         <source>action.edit</source>
         <target>Edytuj</target>
       </trans-unit>
+      <trans-unit id="action.login">
+        <source>action.login</source>
+        <target>Zaloguj się</target>
+      </trans-unit>
+      <trans-unit id="action.logout">
+        <source>action.logout</source>
+        <target>Wyloguj się</target>
+      </trans-unit>
+      <trans-unit id="title.main">
+        <source>title.main</source>
+        <target>Strona Główna</target>
+      </trans-unit>
+      <trans-unit id="label.logged_as">
+        <source>label.logged_as</source>
+        <target>Zalogowano jako</target>
+      </trans-unit>
+      <trans-unit id="title.to_accept">
+        <source>title.to_accept</source>
+        <target>Ogłoszenia oczeukjące na zatwierdzenie</target>
+      </trans-unit>
+      <trans-unit id="action.accept">
+        <source>action.accept</source>
+        <target>Zaakceptuj</target>
+      </trans-unit>
+      <trans-unit id="title.adm_panel">
+        <source>title.adm_panel</source>
+        <target>Panel Administratora</target>
+      </trans-unit>
+      <trans-unit id="title.ad_accept">
+        <source>title.ad_accept</source>
+        <target>Zaakceptuj ogłoszenia</target>
+      </trans-unit>
+      <trans-unit id="title.change_data">
+        <source>title.change_data</source>
+        <target>Zmień dane administratora</target>
+      </trans-unit>
+      <trans-unit id="message.accepted_successfully">
+        <source>message.accepted_successfully</source>
+        <target>Zaakceptowano pomyślnie!</target>
+      </trans-unit>
+      <trans-unit id="title.ad_delete">
+        <source>title.ad_delete</source>
+        <target>Usuń ogłoszenie</target>
+      </trans-unit>
+      <trans-unit id="title.ad_create">
+        <source>title.ad_create</source>
+        <target>Stwórz ogłoszenie</target>
+      </trans-unit>
+      <trans-unit id="title.ad_edit">
+        <source>title.ad_edit</source>
+        <target>Edytuj ogłoszenie</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

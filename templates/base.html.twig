@@ -23,16 +23,32 @@
     </head>
     <body>
 
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <div>{{ app.user.username }}</div>
-            <div>
-                <a href="{{ url('app_logout') }}">{{ 'action_logout'|trans }}</a>
-            </div>
-        {% else %}
-            <div>
-                <a href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
-            </div>
-        {% endif %}
+        <ul class="list-group list-group-horizontal text-center">
+            <a href="{{ url('main_index') }}" title="{{ 'title.main'|trans }}" class="list-group-item list-group-item-action">
+                {{ 'title.main'|trans }}
+            </a>
+            <a href="{{ url('ad_index') }}" title="{{ 'action.ad_list'|trans }}" class="list-group-item list-group-item-action">
+                {{ 'action.ad_list'|trans }}
+            </a>
+            <a href="{{ url('adCategory_index') }}" title="{{ 'action.category_list'|trans }}" class="list-group-item list-group-item-action">
+                {{ 'action.category_list'|trans }}
+            </a>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a class="list-group-item">
+                    {{ 'label.logged_as'|trans}} {{ app.user.username }}
+                </a>
+                <a href="{{ url('admin_panel') }}" class="list-group-item list-group-item-action">
+                    {{ 'title.adm_panel'|trans }}
+                </a>
+                <a href="{{ url('app_logout') }}" class="list-group-item list-group-item-action">
+                    {{ 'action.logout'|trans }}
+                </a>
+            {% else %}
+                <a href="{{ url('app_login') }}" class="list-group-item list-group-item-action">
+                    {{ 'action.login'|trans }}
+                </a>
+            {% endif %}
+        </ul>
 
         <div class="container-fluid">
             {% include 'default/_flash_messages.html.twig' %}
