@@ -4,7 +4,6 @@ namespace App\Form\Type;
 
 use App\Entity\Ad;
 use App\Entity\AdCategory;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

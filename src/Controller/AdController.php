@@ -29,7 +29,7 @@ class AdController extends AbstractController
 
     /*
      *
-     * show ads
+     * show ads, different render for admin and anonymous user
      *
      */
 
@@ -39,9 +39,10 @@ class AdController extends AbstractController
     )]
     public function index(Request $request): Response
     {
-
+        $filters = $this->getFilters($request);
         $pagination = $this->adService->getPaginatedList(
-            $request->query->getInt('page', 1)
+            $request->query->getInt('page', 1),
+            $filters
         );
 
         if ($this->isGranted('ROLE_ADMIN')) {
@@ -53,7 +54,21 @@ class AdController extends AbstractController
 
     /*
      *
-     * show ads to accept
+     * get filters from request
+     *
+     */
+
+    public function getFilters(Request $request): array
+    {
+        $filters = [];
+        $filters['adCategory_id'] = $request->query->getInt('filters_adCategory_id');
+
+        return $filters;
+    }
+
+    /*
+     *
+     * show ads to accept, admin only, accessible from admin panel only
      *
      */
 
@@ -74,7 +89,7 @@ class AdController extends AbstractController
 
     /*
      *
-     * accept specific add
+     * accept specific add, admin only, accessible from admin panel only
      *
      */
 
@@ -176,7 +191,7 @@ class AdController extends AbstractController
 
     /*
      *
-     * edit ad
+     * edit ad, admin only
      *
      */
 
@@ -214,7 +229,7 @@ class AdController extends AbstractController
 
     /*
      *
-     * delete ad
+     * delete ad, admin only
      *
      */
 
@@ -245,6 +260,44 @@ class AdController extends AbstractController
         }
 
         return $this->render('ad/delete.html.twig', [
+            'form' => $form->createView(),
+            'ad' => $ad,
+        ]);
+    }
+
+    /*
+     *
+     * delete ad to accept, admin only, accessible from admin panel only
+     *
+     */
+
+    #[Route(
+        '/{id}/accept/delete',
+        name: 'accept_delete',
+        requirements: ['id' => '[1-9]\d*'],
+        methods: 'GET|DELETE'
+    )]
+    #[IsGranted('ROLE_ADMIN')]
+    public function deleteToAccept(Request $request, Ad $ad): Response
+    {
+        $form = $this->createForm(FormType::class, $ad, [
+            'method' => 'DELETE',
+            'action' => $this->generateUrl('accept_delete', ['id' => $ad->getId()]),
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->adService->delete($ad);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.deleted_successfully')
+            );
+
+            return $this->redirectToRoute('accept_index');
+        }
+
+        return $this->render('ad/delete.accept.html.twig', [
             'form' => $form->createView(),
             'ad' => $ad,
         ]);

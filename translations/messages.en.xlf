@@ -202,6 +202,30 @@
         <source>title.ad_edit</source>
         <target>Edytuj ogłoszenie</target>
       </trans-unit>
+      <trans-unit id="message.category_contains_ads">
+        <source>message.category_contains_ads</source>
+        <target>Kategoria jest przypisana do ogłoszenia!</target>
+      </trans-unit>
+      <trans-unit id="message.changed_successfully">
+        <source>message.changed_successfully</source>
+        <target>Dane zmieniono pomyślnie</target>
+      </trans-unit>
+      <trans-unit id="action.back">
+        <source>action.back</source>
+        <target>Powrót</target>
+      </trans-unit>
+      <trans-unit id="label.password">
+        <source>label.password</source>
+        <target>Hasło</target>
+      </trans-unit>
+      <trans-unit id="action.sign_in">
+        <source>action.sign_in</source>
+        <target>Zaloguj się</target>
+      </trans-unit>
+      <trans-unit id="action.show_filtered">
+        <source>action.show_filtered</source>
+        <target>Pokaż ogłoszenia</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

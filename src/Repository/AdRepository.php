@@ -25,13 +25,25 @@ class AdRepository extends ServiceEntityRepository
         parent::__construct($registry, Ad::class);
     }
 
-    public function queryAll(): QueryBuilder
+    public function queryAll(array $filters): QueryBuilder
     {
-        return $this->getOrCreateQueryBuilder()
+        $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select('partial ad.{id, createdAt, updatedAt, title, text, is_visible, phone, username}', 'partial adCategory.{id, name}')
             ->where('ad.is_visible = 1')
             ->join('ad.adCategory', 'adCategory')
             ->orderBy('ad.updatedAt', 'DESC');
+
+        return $this->applyFiltersToList($queryBuilder, $filters);
+    }
+
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    {
+        if (isset($filters['adCategory']) && $filters['adCategory'] instanceof AdCategory) {
+            $queryBuilder->andWhere('adCategory = :adCategory')
+                ->setParameter('adCategory', $filters['adCategory']);
+        }
+
+        return $queryBuilder;
     }
 
     public function queryToAccept(): QueryBuilder

@@ -13,17 +13,20 @@ class AdService implements AdServiceInterface
 {
     private AdRepository $adRepository;
     private PaginatorInterface $paginator;
+    private AdCategoryServiceInterface $adCategoryService;
 
-    public function __construct(AdRepository $adRepository, PaginatorInterface $paginator)
+    public function __construct(AdRepository $adRepository, PaginatorInterface $paginator, AdCategoryServiceInterface $adCategoryService)
     {
         $this->adRepository = $adRepository;
         $this->paginator = $paginator;
+        $this->adCategoryService = $adCategoryService;
     }
 
-    public function getPaginatedList(int $page): PaginationInterface
+    public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
+        $filters = $this->prepareFilters($filters);
         return $this->paginator->paginate(
-            $this->adRepository->queryAll(),
+            $this->adRepository->queryAll($filters),
             $page,
             AdRepository::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -64,6 +67,19 @@ class AdService implements AdServiceInterface
     {
         $ad->setIsVisible(1);
         $this->adRepository->save($ad);
+    }
+
+    private function prepareFilters(array $filters): array
+    {
+        $resultFilters = [];
+        if (!empty($filters['adCategory_id'])) {
+            $adCategory = $this->adCategoryService->findOneById($filters['adCategory_id']);
+            if (null !== $adCategory) {
+                $resultFilters['adCategory'] = $adCategory;
+            }
+        }
+
+        return $resultFilters;
     }
 
 }

@@ -59,4 +59,9 @@ class AdCategoryService implements AdCategoryServiceInterface
         }
     }
 
+    public function findOneById(int $id): ?AdCategory
+    {
+        return $this->adCategoryRepository->findOneById($id);
+    }
+
 }

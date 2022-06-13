@@ -27,6 +27,12 @@ class AdCategoryController extends AbstractController
         $this->translator = $translator;
     }
 
+    /*
+     *
+     * show ad categories, different render for admin and anonymous user
+     *
+     */
+
     #[Route(
         name: 'adCategory_index',
         methods: 'get'
@@ -36,10 +42,18 @@ class AdCategoryController extends AbstractController
         $pagination = $this->adCategoryService->getPaginatedList(
           $request->query->getInt('page', 1)
         );
-
-        return $this->render('adCategory/index.html.twig', ['pagination'=>$pagination]);
-
+        if($this->isGranted('ROLE_ADMIN')) {
+            return $this->render('adCategory/admin.index.html.twig', ['pagination'=>$pagination]);
+        } else {
+            return $this->render('adCategory/index.html.twig', ['pagination' => $pagination]);
+        }
     }
+
+    /*
+     *
+     * show ad category, admin only
+     *
+     */
 
     #[Route(
         '/{id}',
@@ -55,6 +69,12 @@ class AdCategoryController extends AbstractController
             ['adCategory'=>$adCategory]
         );
     }
+
+    /*
+     *
+     * create ad category, admin only
+     *
+     */
 
     #[Route(
         '/create',
@@ -85,6 +105,12 @@ class AdCategoryController extends AbstractController
         );
 
     }
+
+    /*
+     *
+     * edit ad category, admin only
+     *
+     */
 
     #[Route(
         '/admin/{id}/edit',
@@ -120,6 +146,12 @@ class AdCategoryController extends AbstractController
             ]
         );
     }
+
+    /*
+     *
+     * delete ad category, admin only
+     *
+     */
 
     #[Route(
         '/{id}/delete',

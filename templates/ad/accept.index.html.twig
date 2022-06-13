@@ -36,6 +36,11 @@
                     <td>
                         <a href="{{ url('ad_accept', {id: ad.id}) }}" title="{{ 'action.accept'|trans }}">
                             {{ 'action.accept'|trans }}
+                        </a>
+                        <br>
+                        <a href="{{ url('accept_delete', {id: ad.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
