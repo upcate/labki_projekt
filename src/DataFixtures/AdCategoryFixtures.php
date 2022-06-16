@@ -7,6 +7,11 @@ use DateTimeImmutable;
 
 class AdCategoryFixtures extends AbstractBaseFixtures
 {
+    /*
+     *
+     * generate random data using Faker
+     *
+     */
 
     public function loadData(): void
     {

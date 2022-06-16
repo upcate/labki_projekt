@@ -10,6 +10,13 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 class AdFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
 
+
+    /*
+     *
+     * generate random data using Faker
+     *
+     */
+
     public function loadData(): void
     {
         if (null === $this->manager || null === $this->faker) {

@@ -15,6 +15,13 @@ class UserFixtures extends AbstractBaseFixtures
         $this->hasher = $hasher;
     }
 
+    /*
+     *
+     * generate random data using faker
+     *
+     */
+
+
     protected function loadData(): void
     {
 

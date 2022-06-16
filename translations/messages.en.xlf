@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="label.actions">
         <source>label.actions</source>
-        <target>Akcje</target>
+        <target>Actions</target>
       </trans-unit>
       <trans-unit id="label.id">
         <source>label.id</source>
@@ -12,7 +12,7 @@
       </trans-unit>
       <trans-unit id="label.title">
         <source>label.title</source>
-        <target>Tytuł</target>
+        <target>Tiitle</target>
       </trans-unit>
       <trans-unit id="label.content">
         <source>label.content</source>
@@ -20,15 +20,15 @@
       </trans-unit>
       <trans-unit id="label.tags">
         <source>label.tags</source>
-        <target>Tagi</target>
+        <target>Tags</target>
       </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
-        <target>Pusta Lista!.</target>
+        <target>Empty list!</target>
       </trans-unit>
       <trans-unit id="message.record_not_found">
         <source>message.record_not_found</source>
-        <target>Record not found.</target>
+        <target>Record not found</target>
       </trans-unit>
       <trans-unit id="title.record_list">
         <source>title.record_list</source>
@@ -40,79 +40,79 @@
       </trans-unit>
       <trans-unit id="label.category">
         <source>label.category</source>
-        <target>Kategoria</target>
+        <target>Category</target>
       </trans-unit>
       <trans-unit id="label.updatedAt">
         <source>label.updatedAt</source>
-        <target>Zaktualizowano</target>
+        <target>Updated At</target>
       </trans-unit>
       <trans-unit id="label.createdAt">
         <source>label.createdAt</source>
-        <target>Stworzono</target>
+        <target>Created at</target>
       </trans-unit>
       <trans-unit id="title.taskList">
         <source>title.taskList</source>
-        <target>Lista Zadań</target>
+        <target>Task List</target>
       </trans-unit>
       <trans-unit id="tile.taskView">
         <source>title.taskView</source>
-        <target>Zadanie #%id%</target>
+        <target>Task #%id%</target>
       </trans-unit>
       <trans-unit id="tile.tasks">
         <source>title.tasks</source>
-        <target>Zadania</target>
+        <target>Tasks</target>
       </trans-unit>
       <trans-unit id="tile.categories">
         <source>title.categories</source>
-        <target>Kategorie</target>
+        <target>Categories</target>
       </trans-unit>
       <trans-unit id="action.save">
         <source>action.save</source>
-        <target>Zapisz</target>
+        <target>Save</target>
       </trans-unit>
       <trans-unit id="action.back_to_list">
         <source>action.back_to_list</source>
-        <target>Powrót do listy</target>
+        <target>Back to list</target>
       </trans-unit>
       <trans-unit id="title.category_create">
         <source>title.category_create</source>
-        <target>Stwórz kategorię</target>
+        <target>Create category</target>
       </trans-unit>
       <trans-unit id="message.created_successfully">
         <source>message.created_successfully</source>
-        <target>Stworzono pomyślnie!</target>
+        <target>Created successfully!</target>
       </trans-unit>
       <trans-unit id="title.category_edit">
         <source>title.category_edit</source>
-        <target>Edytuj kategorię</target>
+        <target>Edit category</target>
       </trans-unit>
       <trans-unit id="action.delete">
         <source>action.delete</source>
-        <target>Usuń</target>
+        <target>Delete</target>
       </trans-unit>
       <trans-unit id="title.category_delete">
         <source>title.category_delete</source>
-        <target>Usuń kategorię #%id%</target>
+        <target>Delete category #%id%</target>
       </trans-unit>
             <trans-unit id="title.adCategory_delete">
               <source>title.adCategory_delete</source>
-              <target>Usuń kategorię %name%</target>
+              <target>Delete category %name%</target>
             </trans-unit>
       <trans-unit id="message.deleted_successfully">
         <source>message.deleted_successfully</source>
-        <target>Usunięto pomyślnie</target>
+        <target>Deleted successfully</target>
       </trans-unit>
       <trans-unit id="message.edited_successfully">
         <source>message.edited_successfully</source>
-        <target>Zedytowano pomyślnie</target>
+        <target>Edited successfully</target>
       </trans-unit>
       <trans-unit id="label.username">
         <source>label.username</source>
-        <target>Użytkownik</target>
+        <target>User</target>
       </trans-unit>
       <trans-unit id="label.phone">
         <source>label.phone</source>
-        <target>Telefon</target>
+        <target>Telephone</target>
       </trans-unit>
       <trans-unit id="label.email">
         <source>label.email</source>
@@ -120,111 +120,111 @@
       </trans-unit>
       <trans-unit id="title.ad_list">
         <source>title.ad_list</source>
-        <target>Lista Ogłoszeń</target>
+        <target>Ad List</target>
       </trans-unit>
       <trans-unit id="action.view">
         <source>action.view</source>
-        <target>Pokaż</target>
+        <target>Show</target>
       </trans-unit>
       <trans-unit id="label.text">
         <source>label.text</source>
-        <target>Treść</target>
+        <target>Content</target>
       </trans-unit>
       <trans-unit id="title.ad_categories">
         <source>title.ad_categories</source>
-        <target>Kategorie Ogłoszeń</target>
+        <target>Ad categories</target>
       </trans-unit>
       <trans-unit id="label.name">
         <source>label.name</source>
-        <target>Nazwa</target>
+        <target>Name</target>
       </trans-unit>
       <trans-unit id="action.ad_list">
         <source>action.ad_list</source>
-        <target>Ogłoszenia</target>
+        <target>Ads</target>
       </trans-unit>
       <trans-unit id="action.category_list">
         <source>action.category_list</source>
-        <target>Kategorie</target>
+        <target>Categories</target>
       </trans-unit>
       <trans-unit id="action.edit">
         <source>action.edit</source>
-        <target>Edytuj</target>
+        <target>Edit</target>
       </trans-unit>
       <trans-unit id="action.login">
         <source>action.login</source>
-        <target>Zaloguj się</target>
+        <target>Log in</target>
       </trans-unit>
       <trans-unit id="action.logout">
         <source>action.logout</source>
-        <target>Wyloguj się</target>
+        <target>Log out</target>
       </trans-unit>
       <trans-unit id="title.main">
         <source>title.main</source>
-        <target>Strona Główna</target>
+        <target>Main page</target>
       </trans-unit>
       <trans-unit id="label.logged_as">
         <source>label.logged_as</source>
-        <target>Zalogowano jako</target>
+        <target>Logged as</target>
       </trans-unit>
       <trans-unit id="title.to_accept">
         <source>title.to_accept</source>
-        <target>Ogłoszenia oczeukjące na zatwierdzenie</target>
+        <target>Ads to accept</target>
       </trans-unit>
       <trans-unit id="action.accept">
         <source>action.accept</source>
-        <target>Zaakceptuj</target>
+        <target>Accept</target>
       </trans-unit>
       <trans-unit id="title.adm_panel">
         <source>title.adm_panel</source>
-        <target>Panel Administratora</target>
+        <target>Admin panel</target>
       </trans-unit>
       <trans-unit id="title.ad_accept">
         <source>title.ad_accept</source>
-        <target>Zaakceptuj ogłoszenia</target>
+        <target>Accept ads</target>
       </trans-unit>
       <trans-unit id="title.change_data">
         <source>title.change_data</source>
-        <target>Zmień dane administratora</target>
+        <target>Change login data</target>
       </trans-unit>
       <trans-unit id="message.accepted_successfully">
         <source>message.accepted_successfully</source>
-        <target>Zaakceptowano pomyślnie!</target>
+        <target>Accepted successfully!</target>
       </trans-unit>
       <trans-unit id="title.ad_delete">
         <source>title.ad_delete</source>
-        <target>Usuń ogłoszenie</target>
+        <target>Delete ad</target>
       </trans-unit>
       <trans-unit id="title.ad_create">
         <source>title.ad_create</source>
-        <target>Stwórz ogłoszenie</target>
+        <target>Create ad</target>
       </trans-unit>
       <trans-unit id="title.ad_edit">
         <source>title.ad_edit</source>
-        <target>Edytuj ogłoszenie</target>
+        <target>Edit ad</target>
       </trans-unit>
       <trans-unit id="message.category_contains_ads">
         <source>message.category_contains_ads</source>
-        <target>Kategoria jest przypisana do ogłoszenia!</target>
+        <target>Category is assigned to the ad!</target>
       </trans-unit>
       <trans-unit id="message.changed_successfully">
         <source>message.changed_successfully</source>
-        <target>Dane zmieniono pomyślnie</target>
+        <target>Ad edited successfully</target>
       </trans-unit>
       <trans-unit id="action.back">
         <source>action.back</source>
-        <target>Powrót</target>
+        <target>Go back</target>
       </trans-unit>
       <trans-unit id="label.password">
         <source>label.password</source>
-        <target>Hasło</target>
+        <target>Password</target>
       </trans-unit>
       <trans-unit id="action.sign_in">
         <source>action.sign_in</source>
-        <target>Zaloguj się</target>
+        <target>Log in</target>
       </trans-unit>
       <trans-unit id="action.show_filtered">
         <source>action.show_filtered</source>
-        <target>Pokaż ogłoszenia</target>
+        <target>Show ads</target>
       </trans-unit>
     </body>
   </file>
