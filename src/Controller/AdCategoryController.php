@@ -27,11 +27,6 @@ class AdCategoryController extends AbstractController
         $this->translator = $translator;
     }
 
-    /*
-     *
-     * show ad categories, different render for admin and anonymous user
-     *
-     */
 
     #[Route(
         name: 'adCategory_index',
@@ -49,11 +44,6 @@ class AdCategoryController extends AbstractController
         }
     }
 
-    /*
-     *
-     * show ad category, admin only
-     *
-     */
 
     #[Route(
         '/{id}',
@@ -70,11 +60,6 @@ class AdCategoryController extends AbstractController
         );
     }
 
-    /*
-     *
-     * create ad category, admin only
-     *
-     */
 
     #[Route(
         '/create',
@@ -106,11 +91,6 @@ class AdCategoryController extends AbstractController
 
     }
 
-    /*
-     *
-     * edit ad category, admin only
-     *
-     */
 
     #[Route(
         '/admin/{id}/edit',
@@ -147,11 +127,6 @@ class AdCategoryController extends AbstractController
         );
     }
 
-    /*
-     *
-     * delete ad category, admin only
-     *
-     */
 
     #[Route(
         '/{id}/delete',

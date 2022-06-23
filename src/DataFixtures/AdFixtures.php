@@ -11,11 +11,6 @@ class AdFixtures extends AbstractBaseFixtures implements DependentFixtureInterfa
 {
 
 
-    /*
-     *
-     * generate random data using Faker
-     *
-     */
 
     public function loadData(): void
     {

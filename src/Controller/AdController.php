@@ -27,11 +27,6 @@ class AdController extends AbstractController
         $this->translator = $translator;
     }
 
-    /*
-     *
-     * show ads, different render for admin and anonymous user
-     *
-     */
 
     #[Route(
         name: 'ad_index',
@@ -52,11 +47,6 @@ class AdController extends AbstractController
         }
     }
 
-    /*
-     *
-     * get filters from request
-     *
-     */
 
     public function getFilters(Request $request): array
     {
@@ -66,11 +56,6 @@ class AdController extends AbstractController
         return $filters;
     }
 
-    /*
-     *
-     * show ads to accept, admin only, accessible from admin panel only
-     *
-     */
 
     #[Route(
         '/toAccept',
@@ -87,11 +72,6 @@ class AdController extends AbstractController
         return $this->render('ad/accept.index.html.twig', ['pagination' => $pagination]);
     }
 
-    /*
-     *
-     * accept specific add, admin only, accessible from admin panel only
-     *
-     */
 
     #[Route(
         '/{id}/accept',
@@ -129,11 +109,6 @@ class AdController extends AbstractController
     }
 
 
-    /*
-     *
-     * show ad
-     *
-     */
 
     #[Route(
         '/{id}',
@@ -149,11 +124,6 @@ class AdController extends AbstractController
         );
     }
 
-    /*
-     *
-     * create ad
-     *
-     */
 
     #[Route(
         '/create',
@@ -189,11 +159,6 @@ class AdController extends AbstractController
           ]);
     }
 
-    /*
-     *
-     * edit ad, admin only
-     *
-     */
 
     #[Route(
         '/{id}/edit',
@@ -227,11 +192,6 @@ class AdController extends AbstractController
         ]);
     }
 
-    /*
-     *
-     * delete ad, admin only
-     *
-     */
 
     #[Route(
         '/{id}/delete',
@@ -265,11 +225,6 @@ class AdController extends AbstractController
         ]);
     }
 
-    /*
-     *
-     * delete ad to accept, admin only, accessible from admin panel only
-     *
-     */
 
     #[Route(
         '/{id}/accept/delete',

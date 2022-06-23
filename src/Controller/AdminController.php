@@ -12,11 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
 
-    /*
-     *
-     * render admin panel
-     *
-     */
     #[Route(
       '/panel',
       name: 'admin_panel',

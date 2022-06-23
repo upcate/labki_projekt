@@ -27,11 +27,6 @@ class UserController extends AbstractController
         $this->translator = $translator;
     }
 
-    /*
-     *
-     * edit user (admin only) info, password and username
-     *
-     */
 
     #[Route(
         '/{id}/edit',

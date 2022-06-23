@@ -226,6 +226,14 @@
         <source>action.show_filtered</source>
         <target>Show ads</target>
       </trans-unit>
+            <trans-unit id="message.category_contains_tasks">
+              <source>message.category_contains_tasks</source>
+              <target>Cateogry contains task!</target>
+            </trans-unit>
+                  <trans-unit id="message.form_error">
+                    <source>message.form_error</source>
+                    <target>Form error</target>
+                  </trans-unit>
     </body>
   </file>
 </xliff>

@@ -11,12 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
 
-    /*
-     *
-     * render main page
-     * TODO: ad something to show off, like 5 newest ads, or some simple welcome message with functionality of an app
-     *
-     */
 
     #[Route(
         '/main',
