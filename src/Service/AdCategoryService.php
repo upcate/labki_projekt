@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * AdCategoryService.
+ *
+ */
 namespace App\Service;
 
 
@@ -11,12 +15,45 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\AdRepository;
 
+/**
+ *
+ * Class AdCategoryService.
+ *
+ */
 class AdCategoryService implements AdCategoryServiceInterface
 {
+    /**
+     * AdCategoryRepository.
+     *
+     * @var AdCategoryRepository
+     *
+     */
     private AdCategoryRepository $adCategoryRepository;
+
+    /**
+     * PaginatorInterface.
+     *
+     * @var PaginatorInterface
+     *
+     */
     private PaginatorInterface $paginator;
+
+    /**
+     * AdRepository.
+     *
+     * @var AdRepository
+     *
+     */
     private AdRepository $adRepository;
 
+    /**
+     * Constructor.
+     *
+     * @param AdCategoryRepository $adCategoryRepository Ad category repository
+     * @param PaginatorInterface $paginator Paginator interface
+     * @param AdRepository $adRepository Ad repository
+     *
+     */
     public function __construct(AdCategoryRepository $adCategoryRepository, PaginatorInterface $paginator, AdRepository $adRepository)
     {
         $this->paginator = $paginator;
@@ -24,6 +61,13 @@ class AdCategoryService implements AdCategoryServiceInterface
         $this->adRepository = $adRepository;
     }
 
+    /**
+     * Get paginated list.
+     *
+     * @param int $page
+     * @return PaginationInterface
+     *
+     */
     public function getPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
@@ -33,6 +77,13 @@ class AdCategoryService implements AdCategoryServiceInterface
         );
     }
 
+    /**
+     * Save.
+     *
+     * @param AdCategory $adCategory
+     * @return void
+     *
+     */
     public function save(AdCategory $adCategory): void
     {
         if(null == $adCategory->getId()) {
@@ -43,11 +94,25 @@ class AdCategoryService implements AdCategoryServiceInterface
         $this->adCategoryRepository->save($adCategory);
     }
 
+    /**
+     * Delete.
+     *
+     * @param AdCategory $adCategory
+     * @return void
+     *
+     */
     public function delete(AdCategory $adCategory): void
     {
         $this->adCategoryRepository->delete($adCategory);
     }
 
+    /**
+     * Check can be deleted.
+     *
+     * @param AdCategory $adCategory
+     * @return bool
+     *
+     */
     public function canBeDeleted(AdCategory $adCategory): bool
     {
         try {
@@ -59,6 +124,13 @@ class AdCategoryService implements AdCategoryServiceInterface
         }
     }
 
+    /**
+     * Find one by id.
+     *
+     * @param int $id
+     * @return AdCategory|null
+     *
+     */
     public function findOneById(int $id): ?AdCategory
     {
         return $this->adCategoryRepository->findOneById($id);

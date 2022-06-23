@@ -1,22 +1,48 @@
 <?php
-
+/**
+ *
+ * UserFixtures.
+ *
+ */
 namespace App\DataFixtures;
 
 use App\Entity\Enum\UserRole;
 use App\Entity\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+/**
+ *
+ * Class UserFixtures.
+ *
+ */
 class UserFixtures extends AbstractBaseFixtures
 {
+    /**
+     *UserPasswordHasherInterface
+     *
+     * @var UserPasswordHasherInterface
+     *
+     */
     private UserPasswordHasherInterface $hasher;
 
+    /**
+     * Constructor
+     *
+     * @param UserPasswordHasherInterface $hasher User Password Hasher Interface
+     *
+     */
     public function __construct(UserPasswordHasherInterface $hasher)
     {
         $this->hasher = $hasher;
     }
 
 
-
+    /**
+     * Load Data.
+     *
+     * @return void
+     *
+     */
     protected function loadData(): void
     {
 

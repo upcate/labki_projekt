@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * AdController.
+ *
+ */
 namespace App\Controller;
 
 use App\Entity\Ad;
@@ -13,21 +17,50 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-
+/**
+ *
+ * Class AdController.
+ *
+ */
 #[Route('/ad')]
 class AdController extends AbstractController
 {
-
+    /**
+     * AdServiceInterface.
+     *
+     * @var AdServiceInterface
+     *
+     */
     private AdServiceInterface $adService;
+
+    /**
+     * TranslatorInterface.
+     *
+     * @var TranslatorInterface
+     *
+     */
     private TranslatorInterface $translator;
 
+    /**
+     * Constructor.
+     *
+     * @param AdServiceInterface $adService Ad Service Interface
+     * @param TranslatorInterface $translator Translator
+     *
+     */
     public function __construct(AdServiceInterface $adService, TranslatorInterface $translator)
     {
         $this->adService = $adService;
         $this->translator = $translator;
     }
 
-
+    /**
+     * Index action.
+     *
+     * @param Request $request
+     * @return Response
+     *
+     */
     #[Route(
         name: 'ad_index',
         methods: 'get'
@@ -56,7 +89,13 @@ class AdController extends AbstractController
         return $filters;
     }
 
-
+    /**
+     * Index to accept action.
+     *
+     * @param Request $request
+     * @return Response
+     *
+     */
     #[Route(
         '/toAccept',
         name: 'accept_index',
@@ -72,7 +111,14 @@ class AdController extends AbstractController
         return $this->render('ad/accept.index.html.twig', ['pagination' => $pagination]);
     }
 
-
+    /**
+     * Accept action.
+     *
+     * @param Request $request
+     * @param Ad $ad
+     * @return Response
+     *
+     */
     #[Route(
         '/{id}/accept',
         name: 'ad_accept',
@@ -109,7 +155,13 @@ class AdController extends AbstractController
     }
 
 
-
+    /**
+     * Show action.
+     *
+     * @param Ad $ad
+     * @return Response
+     *
+     */
     #[Route(
         '/{id}',
         name: 'ad_show',
@@ -124,7 +176,13 @@ class AdController extends AbstractController
         );
     }
 
-
+    /**
+     * Create action.
+     *
+     * @param Request $request
+     * @return Response
+     *
+     */
     #[Route(
         '/create',
         name: 'ad_create',
@@ -159,7 +217,14 @@ class AdController extends AbstractController
           ]);
     }
 
-
+    /**
+     * Edit action.
+     *
+     * @param Request $request
+     * @param Ad $ad
+     * @return Response
+     *
+     */
     #[Route(
         '/{id}/edit',
         name: 'ad_edit',
@@ -192,7 +257,14 @@ class AdController extends AbstractController
         ]);
     }
 
-
+    /**
+     * Delete action.
+     *
+     * @param Request $request
+     * @param Ad $ad
+     * @return Response
+     *
+     */
     #[Route(
         '/{id}/delete',
         name: 'ad_delete',
@@ -225,7 +297,14 @@ class AdController extends AbstractController
         ]);
     }
 
-
+    /**
+     * Delete to accept action.
+     *
+     * @param Request $request
+     * @param Ad $ad
+     * @return Response
+     *
+     */
     #[Route(
         '/{id}/accept/delete',
         name: 'accept_delete',

@@ -1,13 +1,28 @@
 <?php
-
+/**
+ *
+ * AdCategoryFixtures.
+ *
+ */
 namespace App\DataFixtures;
 
 use App\Entity\AdCategory;
 use DateTimeImmutable;
 
+/**
+ *
+ * Class AdCategoryFixtures.
+ *
+ */
 class AdCategoryFixtures extends AbstractBaseFixtures
 {
 
+    /**
+     * Load Data.
+     *
+     * @return void
+     *
+     */
     public function loadData(): void
     {
         $this->createMany(20, 'adCategories', function(int $i) {

@@ -1,17 +1,30 @@
 <?php
-
+/**
+ *
+ * AdFixtures.
+ *
+ */
 namespace App\DataFixtures;
 
 use App\Entity\Ad;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-
+/**
+ *
+ * Class AdFixtures.
+ *
+ */
 class AdFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
 
 
-
+    /**
+     * Load Data.
+     *
+     * @return void
+     *
+     */
     public function loadData(): void
     {
         if (null === $this->manager || null === $this->faker) {
@@ -51,7 +64,12 @@ class AdFixtures extends AbstractBaseFixtures implements DependentFixtureInterfa
         $this->manager->flush();
     }
 
-
+    /**
+     * Get Dependencies.
+     *
+     * @return string[]
+     *
+     */
     public function getDependencies(): array
     {
         return [AdCategoryFixtures::class];

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * User.
+ *
+ */
 namespace App\Entity;
 
 use App\Entity\Enum\UserRole;
@@ -9,28 +13,63 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ *
+ * Class User.
+ *
+ */
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'users')]
 #[ORM\UniqueConstraint(name: 'username_idx', columns: ['username'])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+    /**
+     * Primary Key.
+     *
+     * @var int|null
+     *
+     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private ?int $id;
 
+    /**
+     * Username.
+     *
+     * @var string|null
+     *
+     */
     #[ORM\Column(type: 'string', length: 20, unique: true)]
     #[Assert\NotBlank]
     #[Assert\Length(min: 3, max: 20)]
     private ?string $username;
 
+    /**
+     * Roles.
+     *
+     * @var array
+     *
+     */
     #[ORM\Column(type: 'json')]
     private array $roles = [];
 
+    /**
+     * Password.
+     *
+     * @var string|null
+     *
+     */
     #[ORM\Column(type: 'string')]
     #[Assert\NotBlank]
     private ?string $password;
 
+    /**
+     * Getter for Id.
+     *
+     * @return int|null
+     *
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +83,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return (string) $this->username;
     }
 
+    /**
+     * Setter for Username.
+     *
+     * @param string $username
+     * @return void
+     *
+     */
     public function setUsername(string $username): void
     {
         $this->username = $username;
@@ -60,7 +106,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * Getter for Roles.
+     *
      * @see UserInterface
+     *
      */
     public function getRoles(): array
     {
@@ -71,19 +120,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
+    /**
+     * Setter for Roles.
+     *
+     * @param array $roles
+     * @return void
+     *
+     */
     public function setRoles(array $roles): void
     {
         $this->roles = $roles;
     }
 
     /**
+     * Getter for Password.
+     *
      * @see PasswordAuthenticatedUserInterface
+     *
      */
     public function getPassword(): string
     {
         return $this->password;
     }
 
+    /**
+     * Setter for Password.
+     *
+     * @param string $password
+     * @return void
+     *
+     */
     public function setPassword(string $password): void
     {
         $this->password = $password;
@@ -94,6 +160,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
      *
      * @see UserInterface
+     *
      */
     public function getSalt(): ?string
     {
@@ -101,7 +168,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * Erase Credentials.
+     *
      * @see UserInterface
+     *
      */
     public function eraseCredentials()
     {

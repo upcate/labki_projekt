@@ -234,6 +234,10 @@
               <source>message.form_error</source>
               <target>Błąd formularza!</target>
             </trans-unit>
+            <trans-unit id="label.none">
+                    <source>label.none</source>
+                    <target>Wybierz kategorię</target>
+                  </trans-unit>
     </body>
   </file>
 </xliff>

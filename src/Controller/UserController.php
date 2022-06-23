@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * UserController.
+ *
+ */
 namespace App\Controller;
 
 
@@ -14,20 +18,52 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ *
+ * Class UserController.
+ *
+ */
 #[Route('/admin')]
 class UserController extends AbstractController
 {
 
+    /**
+     * UserServiceInterface.
+     *
+     * @var UserServiceInterface
+     *
+     */
     private UserServiceInterface $userService;
+
+    /**
+     * TranslatorInterface
+     *
+     * @var TranslatorInterface
+     *
+     */
     private TranslatorInterface $translator;
 
+    /**
+     * Constructor.
+     *
+     * @param UserServiceInterface $userService User Interface
+     * @param TranslatorInterface $translator Translator Interface
+     *
+     */
     public function __construct(UserServiceInterface $userService, TranslatorInterface $translator)
     {
         $this->userService = $userService;
         $this->translator = $translator;
     }
 
-
+    /**
+     * Edit action.
+     *
+     * @param Request $request
+     * @param User $user
+     * @return Response
+     *
+     */
     #[Route(
         '/{id}/edit',
         name: 'user_edit',

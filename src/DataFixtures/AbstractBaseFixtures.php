@@ -1,6 +1,8 @@
 <?php
 /**
+ *
  * Base fixtures.
+ *
  */
 
 namespace App\DataFixtures;
@@ -20,12 +22,16 @@ use LogicException;
 abstract class AbstractBaseFixtures extends Fixture
 {
     /**
+     *
      * Faker.
+     *
      */
     protected ?Generator $faker = null;
 
     /**
+     *
      * Persistence object manager.
+     *
      */
     protected ?ObjectManager $manager = null;
 
@@ -33,6 +39,7 @@ abstract class AbstractBaseFixtures extends Fixture
      * Object reference index.
      *
      * @var array<string, array<int, array-key>>
+     *
      */
     private array $referencesIndex = [];
 
@@ -40,6 +47,7 @@ abstract class AbstractBaseFixtures extends Fixture
      * Load.
      *
      * @param ObjectManager $manager Persistence object manager
+     *
      */
     public function load(ObjectManager $manager): void
     {
@@ -49,7 +57,9 @@ abstract class AbstractBaseFixtures extends Fixture
     }
 
     /**
+     *
      * Load data.
+     *
      */
     abstract protected function loadData(): void;
 
@@ -97,6 +107,7 @@ abstract class AbstractBaseFixtures extends Fixture
      *
      * @psalm-suppress MixedAssignment
      * @psalm-suppress UnusedForeachValue
+     *
      */
     protected function getRandomReference(string $groupName): object
     {
@@ -128,6 +139,7 @@ abstract class AbstractBaseFixtures extends Fixture
      * @return object[] Result
      *
      * @psalm-return list<object>
+     *
      */
     protected function getRandomReferences(string $groupName, int $count): array
     {

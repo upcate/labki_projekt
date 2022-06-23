@@ -1,12 +1,27 @@
 <?php
-
+/**
+ *
+ * UserServiceInterface.
+ *
+ */
 namespace App\Service;
 
 use App\Entity\User;
 
+/**
+ *
+ * Interface UserServiceInterface.
+ *
+ */
 interface UserServiceInterface
 {
-
-public function save(User $user): void;
+    /**
+     * Save.
+     *
+     * @param User $user
+     * @return void
+     *
+     */
+    public function save(User $user): void;
 
 }

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * AdCategoryRepository.
+ *
+ */
 namespace App\Repository;
 
 use App\Entity\AdCategory;
@@ -8,6 +12,8 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * Class AdCategoryRepository.
+ *
  * @extends ServiceEntityRepository<AdCategory>
  *
  * @method AdCategory|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,24 +24,56 @@ use Doctrine\Persistence\ManagerRegistry;
 class AdCategoryRepository extends ServiceEntityRepository
 {
 
+    /**
+     *
+     * Items per page
+     *
+     */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
+    /**
+     * Constructor.
+     *
+     * @param ManagerRegistry $registry Manager Registry
+     *
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, AdCategory::class);
     }
 
+    /**
+     * Query all.
+     *
+     * @return QueryBuilder
+     *
+     */
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
             ->orderBy('adCategory.updatedAt', 'DESC');
     }
 
+    /**
+     * Get or create query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder
+     * @return QueryBuilder
+     *
+     */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
         return $queryBuilder ?? $this->createQueryBuilder('adCategory');
     }
 
+    /**
+     * Add.
+     *
+     * @param AdCategory $entity
+     * @param bool $flush
+     * @return void
+     *
+     */
     public function add(AdCategory $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -45,6 +83,14 @@ class AdCategoryRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Remove.
+     *
+     * @param AdCategory $entity
+     * @param bool $flush
+     * @return void
+     *
+     */
     public function remove(AdCategory $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -54,12 +100,26 @@ class AdCategoryRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Save.
+     *
+     * @param AdCategory $adCategory
+     * @return void
+     *
+     */
     public function save(AdCategory $adCategory): void
     {
         $this->_em->persist($adCategory);
         $this->_em->flush();
     }
 
+    /**
+     * Delete.
+     *
+     * @param AdCategory $adCategory
+     * @return void
+     *
+     */
     public function delete(AdCategory $adCategory): void
     {
         $this->_em->remove($adCategory);

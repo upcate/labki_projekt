@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * AdCategory Controller.
+ *
+ */
 namespace App\Controller;
 
 use App\Entity\AdCategory;
@@ -13,6 +17,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ *
+ * Class AdCategoryController.
+ *
+ */
 #[Route('/adCategory')]
 class AdCategoryController extends AbstractController
 {
@@ -27,6 +36,13 @@ class AdCategoryController extends AbstractController
         $this->translator = $translator;
     }
 
+    /**
+     * Index action.
+     *
+     * @param Request $request
+     * @return Response
+     *
+     */
 
     #[Route(
         name: 'adCategory_index',
@@ -44,7 +60,13 @@ class AdCategoryController extends AbstractController
         }
     }
 
-
+    /**
+     * Show action.
+     *
+     * @param AdCategory $adCategory
+     * @return Response
+     *
+     */
     #[Route(
         '/{id}',
         name: 'adCategory_show',
@@ -60,7 +82,13 @@ class AdCategoryController extends AbstractController
         );
     }
 
-
+    /**
+     * Create action.
+     *
+     * @param Request $request
+     * @return Response
+     *
+     */
     #[Route(
         '/create',
         name: 'adCategory_create',
@@ -91,7 +119,14 @@ class AdCategoryController extends AbstractController
 
     }
 
-
+    /**
+     * Edit action.
+     *
+     * @param Request $request
+     * @param AdCategory $adCategory
+     * @return Response
+     *
+     */
     #[Route(
         '/admin/{id}/edit',
         name: 'adCategory_edit',
@@ -127,7 +162,14 @@ class AdCategoryController extends AbstractController
         );
     }
 
-
+    /**
+     * Delete action.
+     *
+     * @param Request $request
+     * @param AdCategory $adCategory
+     * @return Response
+     *
+     */
     #[Route(
         '/{id}/delete',
         name: 'adCategory_delete',
