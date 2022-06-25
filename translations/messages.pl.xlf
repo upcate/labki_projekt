@@ -238,6 +238,10 @@
                     <source>label.none</source>
                     <target>Wybierz kategorię</target>
                   </trans-unit>
+                <trans-unit id="message.welcome">
+                    <source>message.welcome</source>
+                    <target>Witaj w serwisie ogłoszeniowym!</target>
+                  </trans-unit>
     </body>
   </file>
 </xliff>

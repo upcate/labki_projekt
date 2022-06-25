@@ -6,6 +6,13 @@
 
 {% block body %}
     <h1>{{ 'title.ad_categories'|trans }}</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <p>
+            <a href="{{ url('adCategory_create') }}" title="{{ 'title.category_create'|trans }}" class="button">
+                {{ 'title.category_create'|trans }}
+            </a>
+        </p>
+    {% endif %}
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">
@@ -36,13 +43,6 @@
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
         </div>
-    {% if is_granted('ROLE_ADMIN') %}
-        <p>
-            <a href="{{ url('adCategory_create') }}" title="{{ 'title.category_create'|trans }}">
-                {{ 'title.category_create'|trans }}
-            </a>
-        </p>
-    {% endif %}
 
     {% else %}
         <p>

@@ -6,6 +6,11 @@
 
 {% block body %}
         <h1>{{ 'title.ad_list'|trans }}</h1>
+        <p>
+            <a href="{{ url('ad_create') }}" title="{{ 'title.ad_create'|trans }}" class="button">
+                {{ 'title.ad_create'|trans }}
+            </a>
+        </p>
         {% if pagination is defined and pagination.items|length %}
 
             <div class="navigation text-center">
@@ -42,7 +47,7 @@
                                     {{ 'action.edit'|trans }}
                                 </a>
                                 <br>
-                                <a href="{{ url('accept_delete', {id: ad.id}) }}" title="{{ 'action.delete'|trans }}">
+                                <a href="{{ url('ad_delete', {id: ad.id}) }}" title="{{ 'action.delete'|trans }}">
                                     {{ 'action.delete'|trans }}
                                 </a>
                             </td>
@@ -55,11 +60,6 @@
                 {{ knp_pagination_render(pagination) }}
             </div>
 
-            <p>
-                <a href="{{ url('ad_create') }}" title="{{ 'title.ad_create'|trans }}">
-                    {{ 'title.ad_create'|trans }}
-                </a>
-            </p>
 
         {% else %}
             <p>

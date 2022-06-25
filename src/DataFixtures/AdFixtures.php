@@ -47,7 +47,7 @@ class AdFixtures extends AbstractBaseFixtures implements DependentFixtureInterfa
 
             $ad->setEmail($this->faker->email);
 
-            $ad->setPhone($this->faker->numerify('#########'));
+            $ad->setPhone($this->faker->numerify('4########'));
 
             $ad->setUsername($this->faker->userName);
 

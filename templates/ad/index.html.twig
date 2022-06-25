@@ -6,6 +6,11 @@
 
 {% block body %}
     <h1>{{ 'title.ad_list'|trans }}</h1>
+    <p>
+        <a href="{{ url('ad_create') }}" title="{{ 'title.ad_create'|trans }}" class="button" style="text-decoration: none">
+            {{ 'title.ad_create'|trans }}
+        </a>
+    </p>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">
@@ -44,12 +49,6 @@
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
         </div>
-
-        <p>
-            <a href="{{ url('ad_create') }}" title="{{ 'title.ad_create'|trans }}">
-                {{ 'title.ad_create'|trans }}
-            </a>
-        </p>
 
     {% else %}
         <p>
