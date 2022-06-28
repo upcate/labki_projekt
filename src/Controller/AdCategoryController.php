@@ -52,9 +52,9 @@ class AdCategoryController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         name: 'adCategory_index',
@@ -75,9 +75,9 @@ class AdCategoryController extends AbstractController
     /**
      * Show action.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/{id}',
@@ -97,9 +97,9 @@ class AdCategoryController extends AbstractController
     /**
      * Create action.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/create',
@@ -133,10 +133,10 @@ class AdCategoryController extends AbstractController
     /**
      * Edit action.
      *
-     * @param Request    $request
-     * @param AdCategory $adCategory
+     * @param Request    $request    HTTP Request
+     * @param AdCategory $adCategory AdCategory Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/admin/{id}/edit',
@@ -176,10 +176,10 @@ class AdCategoryController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request    $request
-     * @param AdCategory $adCategory
+     * @param Request    $request    HTTP Request
+     * @param AdCategory $adCategory AdCategory Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/{id}/delete',

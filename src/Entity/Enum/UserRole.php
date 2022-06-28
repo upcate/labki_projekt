@@ -16,7 +16,7 @@ enum UserRole: string
     /**
      * Label.
      *
-     * @return string
+     * @return string Role
      */
     public function label(): string
     {

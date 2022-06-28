@@ -56,9 +56,9 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Supports.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return bool
+     * @return bool Bool return
      */
     public function supports(Request $request): bool
     {
@@ -68,9 +68,9 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Authenticate.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return Passport
+     * @return Passport Authentication passport
      */
     public function authenticate(Request $request): Passport
     {
@@ -90,11 +90,11 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * On authentication success.
      *
-     * @param Request        $request
-     * @param TokenInterface $token
-     * @param string         $firewallName
+     * @param Request        $request      HTTP Request
+     * @param TokenInterface $token        Token
+     * @param string         $firewallName Firewall name
      *
-     * @return Response|null
+     * @return Response|null HTTP Response
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
@@ -108,9 +108,9 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Get log in url.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return string
+     * @return string Log in url
      */
     protected function getLoginUrl(Request $request): string
     {

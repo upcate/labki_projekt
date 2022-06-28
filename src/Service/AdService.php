@@ -54,10 +54,10 @@ class AdService implements AdServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int   $page
-     * @param array $filters
+     * @param int   $page    Number of page
+     * @param array $filters Array of filters
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination interface
      */
     public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
@@ -73,9 +73,9 @@ class AdService implements AdServiceInterface
     /**
      * Get paginated list with ads to accept.
      *
-     * @param int $page
+     * @param int $page Number of page
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination interface
      */
     public function getPaginatedAcceptList(int $page): PaginationInterface
     {
@@ -89,7 +89,7 @@ class AdService implements AdServiceInterface
     /**
      * Save.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -101,7 +101,7 @@ class AdService implements AdServiceInterface
     /**
      * Save on creation by admin.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -114,7 +114,7 @@ class AdService implements AdServiceInterface
     /**
      * Save on creation by user.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -127,7 +127,7 @@ class AdService implements AdServiceInterface
     /**
      * Delete.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -139,7 +139,7 @@ class AdService implements AdServiceInterface
     /**
      * Make ad visible.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -152,9 +152,9 @@ class AdService implements AdServiceInterface
     /**
      * Prepare filters.
      *
-     * @param array $filters
+     * @param array $filters Array of filters
      *
-     * @return array
+     * @return array Array of filters
      */
     private function prepareFilters(array $filters): array
     {

@@ -52,9 +52,9 @@ class AdController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         name: 'ad_index',
@@ -78,9 +78,9 @@ class AdController extends AbstractController
     /**
      * Get filters.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return array
+     * @return array Array with filters
      */
     public function getFilters(Request $request): array
     {
@@ -93,9 +93,9 @@ class AdController extends AbstractController
     /**
      * Index to accept action.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/toAccept',
@@ -115,10 +115,10 @@ class AdController extends AbstractController
     /**
      * Accept action.
      *
-     * @param Request $request
-     * @param Ad      $ad
+     * @param Request $request HTTP Request
+     * @param Ad      $ad      Ad Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/{id}/accept',
@@ -158,9 +158,9 @@ class AdController extends AbstractController
     /**
      * Show action.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/{id}',
@@ -179,9 +179,9 @@ class AdController extends AbstractController
     /**
      * Create action.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/create',
@@ -220,10 +220,10 @@ class AdController extends AbstractController
     /**
      * Edit action.
      *
-     * @param Request $request
-     * @param Ad      $ad
+     * @param Request $request HTTP Request
+     * @param Ad      $ad      Ad Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/{id}/edit',
@@ -260,10 +260,10 @@ class AdController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request $request
-     * @param Ad      $ad
+     * @param Request $request HTTP Request
+     * @param Ad      $ad      Ad Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/{id}/delete',
@@ -300,10 +300,10 @@ class AdController extends AbstractController
     /**
      * Delete to accept action.
      *
-     * @param Request $request
-     * @param Ad      $ad
+     * @param Request $request HTTP Request
+     * @param Ad      $ad      Ad Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/{id}/accept/delete',

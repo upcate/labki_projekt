@@ -37,7 +37,7 @@ abstract class AbstractBaseFixtures extends Fixture
     /**
      * Object reference index.
      *
-     * @var array<string, array<int, array-key>>
+     * @var array<string, array<int, array-key>> Index reference
      */
     private array $referencesIndex = [];
 
@@ -55,6 +55,8 @@ abstract class AbstractBaseFixtures extends Fixture
 
     /**
      * Load data.
+     *
+     * @return void
      */
     abstract protected function loadData(): void;
 
@@ -132,7 +134,7 @@ abstract class AbstractBaseFixtures extends Fixture
      *
      * @return object[] Result
      *
-     * @psalm-return list<object>
+     * @psalm-return list<object> References
      */
     protected function getRandomReferences(string $groupName, int $count): array
     {

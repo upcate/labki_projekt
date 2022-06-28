@@ -57,9 +57,9 @@ class AdCategoryService implements AdCategoryServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page
+     * @param int $page Number of page
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination Interface
      */
     public function getPaginatedList(int $page): PaginationInterface
     {
@@ -73,7 +73,7 @@ class AdCategoryService implements AdCategoryServiceInterface
     /**
      * Save.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
      * @return void
      */
@@ -90,7 +90,7 @@ class AdCategoryService implements AdCategoryServiceInterface
     /**
      * Delete.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
      * @return void
      */
@@ -102,9 +102,9 @@ class AdCategoryService implements AdCategoryServiceInterface
     /**
      * Check can be deleted.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
-     * @return bool
+     * @return bool Bool return
      */
     public function canBeDeleted(AdCategory $adCategory): bool
     {
@@ -120,9 +120,9 @@ class AdCategoryService implements AdCategoryServiceInterface
     /**
      * Find one by id.
      *
-     * @param int $id
+     * @param int $id Id
      *
-     * @return AdCategory|null
+     * @return AdCategory|null AdCategory Entity
      */
     public function findOneById(int $id): ?AdCategory
     {

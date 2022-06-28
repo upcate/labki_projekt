@@ -17,16 +17,16 @@ interface AdServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page
+     * @param int $page Number of page
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination Interface
      */
     public function getPaginatedList(int $page): PaginationInterface;
 
     /**
      * Save.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -35,7 +35,7 @@ interface AdServiceInterface
     /**
      * Save on creation by admin.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -44,7 +44,7 @@ interface AdServiceInterface
     /**
      * Save on creation by user.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -53,7 +53,7 @@ interface AdServiceInterface
     /**
      * Make ad visible.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -62,7 +62,7 @@ interface AdServiceInterface
     /**
      * Delete.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */

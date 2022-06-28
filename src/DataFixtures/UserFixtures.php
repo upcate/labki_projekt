@@ -34,6 +34,8 @@ class UserFixtures extends AbstractBaseFixtures
 
     /**
      * Load data.
+     *
+     * @return void
      */
     protected function loadData(): void
     {

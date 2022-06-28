@@ -20,8 +20,8 @@ class AdCategoryType extends AbstractType
     /**
      * Build form.
      *
-     * @param FormBuilderInterface $builder
-     * @param array                $options
+     * @param FormBuilderInterface $builder Interface builder
+     * @param array                $options Array of options
      *
      * @return void
      */
@@ -41,7 +41,7 @@ class AdCategoryType extends AbstractType
     /**
      * Configure options.
      *
-     * @param OptionsResolver $resolver
+     * @param OptionsResolver $resolver Option Resolver
      *
      * @return void
      */
@@ -53,7 +53,7 @@ class AdCategoryType extends AbstractType
     /**
      * Get block prefix.
      *
-     * @return string
+     * @return string Prefix
      */
     public function getBlockPrefix(): string
     {

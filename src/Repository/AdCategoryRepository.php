@@ -41,7 +41,7 @@ class AdCategoryRepository extends ServiceEntityRepository
     /**
      * Query all.
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     public function queryAll(): QueryBuilder
     {
@@ -52,8 +52,8 @@ class AdCategoryRepository extends ServiceEntityRepository
     /**
      * Add.
      *
-     * @param AdCategory $entity
-     * @param bool       $flush
+     * @param AdCategory $entity AdCategory Entity
+     * @param bool       $flush  Flush flag
      *
      * @return void
      */
@@ -69,8 +69,8 @@ class AdCategoryRepository extends ServiceEntityRepository
     /**
      * Remove.
      *
-     * @param AdCategory $entity
-     * @param bool       $flush
+     * @param AdCategory $entity AdCategory Entity
+     * @param bool       $flush  Flush flag
      *
      * @return void
      */
@@ -86,7 +86,7 @@ class AdCategoryRepository extends ServiceEntityRepository
     /**
      * Save.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AcCategory Entity
      *
      * @return void
      */
@@ -99,7 +99,7 @@ class AdCategoryRepository extends ServiceEntityRepository
     /**
      * Delete.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
      * @return void
      */
@@ -112,9 +112,9 @@ class AdCategoryRepository extends ServiceEntityRepository
     /**
      * Get or create query builder.
      *
-     * @param QueryBuilder|null $queryBuilder
+     * @param QueryBuilder|null $queryBuilder Query builder
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {

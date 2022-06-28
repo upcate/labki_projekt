@@ -21,9 +21,9 @@ class AdminController extends AbstractController
     /**
      * Show admin panel action.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/panel',

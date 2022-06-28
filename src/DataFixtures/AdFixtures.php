@@ -17,6 +17,8 @@ class AdFixtures extends AbstractBaseFixtures implements DependentFixtureInterfa
 {
     /**
      * Load data.
+     *
+     * @return void
      */
     public function loadData(): void
     {
@@ -60,7 +62,7 @@ class AdFixtures extends AbstractBaseFixtures implements DependentFixtureInterfa
     /**
      * Get Dependencies.
      *
-     * @return string[]
+     * @return string[] Dependecies
      */
     public function getDependencies(): array
     {

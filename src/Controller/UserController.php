@@ -51,10 +51,10 @@ class UserController extends AbstractController
     /**
      * Edit action.
      *
-     * @param Request $request
-     * @param User    $user
+     * @param Request $request HTTP Request
+     * @param User    $user    User Entity
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/{id}/edit',

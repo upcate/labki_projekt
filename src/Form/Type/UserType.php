@@ -21,8 +21,8 @@ class UserType extends AbstractType
     /**
      * Build form.
      *
-     * @param FormBuilderInterface $builder
-     * @param array                $options
+     * @param FormBuilderInterface $builder Form interface builder
+     * @param array                $options Array of options
      *
      * @return void
      */
@@ -50,7 +50,7 @@ class UserType extends AbstractType
     /**
      * Configure options.
      *
-     * @param OptionsResolver $resolver
+     * @param OptionsResolver $resolver Options resolver
      *
      * @return void
      */
@@ -62,7 +62,7 @@ class UserType extends AbstractType
     /**
      * Get block prefix.
      *
-     * @return string
+     * @return string Prefix
      */
     public function getBlockPrefix(): string
     {

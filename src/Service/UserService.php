@@ -44,7 +44,7 @@ class UserService implements UserServiceInterface
     /**
      * Save.
      *
-     * @param User $user
+     * @param User $user User Entity
      *
      * @return void
      */

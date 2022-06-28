@@ -18,7 +18,7 @@ class MainController extends AbstractController
     /**
      * Index action.
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/main',

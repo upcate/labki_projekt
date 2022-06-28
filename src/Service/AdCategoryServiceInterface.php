@@ -17,16 +17,16 @@ interface AdCategoryServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page
+     * @param int $page Number of page
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination interface
      */
     public function getPaginatedList(int $page): PaginationInterface;
 
     /**
      * Save.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
      * @return void
      */
@@ -35,7 +35,7 @@ interface AdCategoryServiceInterface
     /**
      * Delete.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
      * @return void
      */
@@ -44,9 +44,9 @@ interface AdCategoryServiceInterface
     /**
      * Check can be deleted.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
-     * @return bool
+     * @return bool Bool return
      */
     public function canBeDeleted(AdCategory $adCategory): bool;
 }

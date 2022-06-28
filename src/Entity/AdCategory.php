@@ -25,7 +25,7 @@ class AdCategory
     /**
      * Primary Key.
      *
-     * @var int|null
+     * @var int|null Id
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -35,7 +35,7 @@ class AdCategory
     /**
      * Created At.
      *
-     * @var DateTimeImmutable|null
+     * @var DateTimeImmutable|null Created at
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\Type(DateTimeImmutable::class)]
@@ -45,7 +45,7 @@ class AdCategory
     /**
      * Updated At.
      *
-     * @var DateTimeImmutable|null
+     * @var DateTimeImmutable|null Updated at
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\Type(DateTimeImmutable::class)]
@@ -55,7 +55,7 @@ class AdCategory
     /**
      * Name.
      *
-     * @var string|null
+     * @var string|null Name
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\Type('string')]
@@ -69,7 +69,7 @@ class AdCategory
     /**
      * Slug.
      *
-     * @var string|null
+     * @var string|null Slug
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\Type('string')]
@@ -80,7 +80,7 @@ class AdCategory
     /**
      * Getter for id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -90,7 +90,7 @@ class AdCategory
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null
+     * @return DateTimeImmutable|null Created at
      */
     public function getCreatedAt(): ?DateTimeImmutable
     {
@@ -100,7 +100,7 @@ class AdCategory
     /**
      * Setter for created at.
      *
-     * @param DateTimeImmutable $createdAt
+     * @param DateTimeImmutable $createdAt Created at
      *
      * @return void
      */
@@ -112,7 +112,7 @@ class AdCategory
     /**
      * Getter for updated at.
      *
-     * @return DateTimeImmutable|null
+     * @return DateTimeImmutable|null Updated at
      */
     public function getUpdatedAt(): ?DateTimeImmutable
     {
@@ -122,7 +122,7 @@ class AdCategory
     /**
      * Setter for updated at.
      *
-     * @param DateTimeImmutable $updatedAt
+     * @param DateTimeImmutable $updatedAt Updated at
      *
      * @return void
      */
@@ -134,7 +134,7 @@ class AdCategory
     /**
      * Getter for name.
      *
-     * @return string|null
+     * @return string|null Name
      */
     public function getName(): ?string
     {
@@ -144,7 +144,7 @@ class AdCategory
     /**
      * Setter for name.
      *
-     * @param string $name
+     * @param string $name Name
      *
      * @return void
      */
@@ -156,7 +156,7 @@ class AdCategory
     /**
      * Getter for slug.
      *
-     * @return string|null
+     * @return string|null Slug
      */
     public function getSlug(): ?string
     {
@@ -166,7 +166,7 @@ class AdCategory
     /**
      * Setter for slug.
      *
-     * @param string $slug
+     * @param string $slug Slug
      *
      * @return void
      */

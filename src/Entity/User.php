@@ -24,7 +24,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Primary Key.
      *
-     * @var int|null
+     * @var int|null Id
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -34,7 +34,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Username.
      *
-     * @var string|null
+     * @var string|null Username
      */
     #[ORM\Column(type: 'string', length: 20, unique: true)]
     #[Assert\NotBlank]
@@ -44,7 +44,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Roles.
      *
-     * @var array
+     * @var array Roles
      */
     #[ORM\Column(type: 'json')]
     private array $roles = [];
@@ -52,7 +52,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Password.
      *
-     * @var string|null
+     * @var string|null Password
      */
     #[ORM\Column(type: 'string')]
     #[Assert\NotBlank]
@@ -61,7 +61,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -72,7 +72,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Get username.
      *
-     * @return string
+     * @return string Username
      */
     public function getUsername(): string
     {
@@ -82,7 +82,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Setter for username.
      *
-     * @param string $username
+     * @param string $username Username
      *
      * @return void
      */
@@ -94,7 +94,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Get user identifier.
      *
-     * @return string
+     * @return string Identifier
      */
     public function getUserIdentifier(): string
     {
@@ -104,7 +104,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for roles.
      *
-     * @return array|string[]
+     * @return array|string[] Roles
      */
     public function getRoles(): array
     {
@@ -118,7 +118,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Setter for roles.
      *
-     * @param array $roles
+     * @param array $roles Roles
      *
      * @return void
      */
@@ -130,7 +130,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for password.
      *
-     * @return string
+     * @return string Password
      */
     public function getPassword(): string
     {
@@ -140,7 +140,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Setter for password.
      *
-     * @param string $password
+     * @param string $password Password
      *
      * @return void
      */
@@ -152,7 +152,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Get salt.
      *
-     * @return string|null
+     * @return string|null Salt
      */
     public function getSalt(): ?string
     {
@@ -162,7 +162,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Erase Credentials.
      *
-     * @see UserInterface
+     * @see UserInterface User interface
      */
     public function eraseCredentials()
     {

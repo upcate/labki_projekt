@@ -42,9 +42,9 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Query all.
      *
-     * @param array $filters
+     * @param array $filters Filters array
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     public function queryAll(array $filters): QueryBuilder
     {
@@ -60,7 +60,7 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Query ads to accept.
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     public function queryToAccept(): QueryBuilder
     {
@@ -74,8 +74,8 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Add.
      *
-     * @param Ad   $entity
-     * @param bool $flush
+     * @param Ad   $entity Ad Entity
+     * @param bool $flush  Flush flag
      *
      * @return void
      */
@@ -91,8 +91,8 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Remove.
      *
-     * @param Ad   $entity
-     * @param bool $flush
+     * @param Ad   $entity Ad Entity
+     * @param bool $flush  Flush flag
      *
      * @return void
      */
@@ -108,9 +108,9 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Count by category.
      *
-     * @param AdCategory $adCategory
+     * @param AdCategory $adCategory AdCategory Entity
      *
-     * @return int
+     * @return int Number of ads by category
      *
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
@@ -129,7 +129,7 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Save.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -142,7 +142,7 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Delete.
      *
-     * @param Ad $ad
+     * @param Ad $ad Ad Entity
      *
      * @return void
      */
@@ -155,10 +155,10 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Apply filters to list.
      *
-     * @param QueryBuilder $queryBuilder
-     * @param array        $filters
+     * @param QueryBuilder $queryBuilder Query builder
+     * @param array        $filters      List of filters
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
     {
@@ -173,9 +173,9 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Get or create query builder.
      *
-     * @param QueryBuilder|null $queryBuilder
+     * @param QueryBuilder|null $queryBuilder Query builder
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {

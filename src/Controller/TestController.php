@@ -20,9 +20,9 @@ class TestController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request
+     * @param Request $request HTTP Request
      *
-     * @return Response
+     * @return Response HTTP Response
      */
     #[Route(
         '/test',
