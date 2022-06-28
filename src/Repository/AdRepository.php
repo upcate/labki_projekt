@@ -40,7 +40,7 @@ class AdRepository extends ServiceEntityRepository
     }
 
     /**
-     * Query All.
+     * Query all.
      *
      * @param array $filters
      *
@@ -74,7 +74,7 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Add.
      *
-     * @param Ad $entity
+     * @param Ad   $entity
      * @param bool $flush
      *
      * @return void
@@ -91,7 +91,7 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Remove.
      *
-     * @param Ad $entity
+     * @param Ad   $entity
      * @param bool $flush
      *
      * @return void
@@ -107,6 +107,10 @@ class AdRepository extends ServiceEntityRepository
 
     /**
      * Count by category.
+     *
+     * @param AdCategory $adCategory
+     *
+     * @return int
      *
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
@@ -149,10 +153,10 @@ class AdRepository extends ServiceEntityRepository
     }
 
     /**
-     * Apply filters to the list.
+     * Apply filters to list.
      *
      * @param QueryBuilder $queryBuilder
-     * @param array $filters
+     * @param array        $filters
      *
      * @return QueryBuilder
      */
@@ -167,7 +171,7 @@ class AdRepository extends ServiceEntityRepository
     }
 
     /**
-     * Get ot create query builder.
+     * Get or create query builder.
      *
      * @param QueryBuilder|null $queryBuilder
      *

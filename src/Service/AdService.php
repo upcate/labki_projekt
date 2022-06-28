@@ -54,7 +54,7 @@ class AdService implements AdServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page
+     * @param int   $page
      * @param array $filters
      *
      * @return PaginationInterface

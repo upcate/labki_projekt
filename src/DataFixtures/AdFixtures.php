@@ -17,8 +17,6 @@ class AdFixtures extends AbstractBaseFixtures implements DependentFixtureInterfa
 {
     /**
      * Load data.
-     *
-     * @return void
      */
     public function loadData(): void
     {

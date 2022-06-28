@@ -21,10 +21,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class AdType extends AbstractType
 {
     /**
-     * Build Form.
+     * Build form.
      *
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      *
      * @return void
      */

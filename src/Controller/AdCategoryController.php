@@ -27,7 +27,6 @@ class AdCategoryController extends AbstractController
      * AdCategoryServiceInterface.
      *
      * @var AdCategoryServiceInterface Ad category service interface
-     *
      */
     private AdCategoryServiceInterface $adCategoryService;
 
@@ -35,7 +34,6 @@ class AdCategoryController extends AbstractController
      * TranslatorInterface.
      *
      * @var TranslatorInterface Translator interface
-     *
      */
     private TranslatorInterface $translator;
 
@@ -43,7 +41,7 @@ class AdCategoryController extends AbstractController
      * Constructor.
      *
      * @param AdCategoryServiceInterface $adCategoryService Ad Category service interface
-     * @param TranslatorInterface $translator Translator interface
+     * @param TranslatorInterface        $translator        Translator interface
      */
     public function __construct(AdCategoryServiceInterface $adCategoryService, TranslatorInterface $translator)
     {
@@ -69,9 +67,9 @@ class AdCategoryController extends AbstractController
         );
         if ($this->isGranted('ROLE_ADMIN')) {
             return $this->render('adCategory/admin.index.html.twig', ['pagination' => $pagination]);
-        } else {
-            return $this->render('adCategory/index.html.twig', ['pagination' => $pagination]);
         }
+
+        return $this->render('adCategory/index.html.twig', ['pagination' => $pagination]);
     }
 
     /**

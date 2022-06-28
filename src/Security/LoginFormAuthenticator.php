@@ -90,9 +90,9 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * On authentication success.
      *
-     * @param Request $request
+     * @param Request        $request
      * @param TokenInterface $token
-     * @param string $firewallName
+     * @param string         $firewallName
      *
      * @return Response|null
      */

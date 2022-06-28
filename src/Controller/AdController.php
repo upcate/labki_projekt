@@ -73,13 +73,13 @@ class AdController extends AbstractController
         }
 
         return $this->render('ad/index.html.twig', ['pagination' => $pagination]);
-
     }
 
     /**
      * Get filters.
      *
      * @param Request $request
+     *
      * @return array
      */
     public function getFilters(Request $request): array
@@ -132,7 +132,7 @@ class AdController extends AbstractController
         $form = $this->createForm(FormType::class, $ad, [
                 'method' => 'PUT',
                 'action' => $this->generateUrl('ad_accept', ['id' => $ad->getId()]),
-            ]);
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

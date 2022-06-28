@@ -79,7 +79,7 @@ class AdCategoryService implements AdCategoryServiceInterface
      */
     public function save(AdCategory $adCategory): void
     {
-        if (null == $adCategory->getId()) {
+        if (null === $adCategory->getId()) {
             $adCategory->setCreatedAt(new \DateTimeImmutable());
         }
         $adCategory->setUpdatedAt(new \DateTimeImmutable());
@@ -112,7 +112,7 @@ class AdCategoryService implements AdCategoryServiceInterface
             $result = $this->adRepository->countByCategory($adCategory);
 
             return !($result > 0);
-        } catch (NoResultException|NonUniqueResultException) {
+        } catch (NoResultException | NonUniqueResultException) {
             return false;
         }
     }

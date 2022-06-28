@@ -39,7 +39,7 @@ class AdCategoryRepository extends ServiceEntityRepository
     }
 
     /**
-     * Query All.
+     * Query all.
      *
      * @return QueryBuilder
      */
@@ -53,7 +53,7 @@ class AdCategoryRepository extends ServiceEntityRepository
      * Add.
      *
      * @param AdCategory $entity
-     * @param bool $flush
+     * @param bool       $flush
      *
      * @return void
      */
@@ -70,7 +70,7 @@ class AdCategoryRepository extends ServiceEntityRepository
      * Remove.
      *
      * @param AdCategory $entity
-     * @param bool $flush
+     * @param bool       $flush
      *
      * @return void
      */

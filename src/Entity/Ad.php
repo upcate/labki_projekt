@@ -118,7 +118,7 @@ class Ad
     private ?AdCategory $adCategory = null;
 
     /**
-     * Getter for id.
+     *Getter for id.
      *
      * @return int|null
      */
@@ -295,6 +295,7 @@ class Ad
      * Setter for updated at.
      *
      * @param DateTimeImmutable $updatedAt
+     *
      * @return void
      */
     public function setUpdatedAt(DateTimeImmutable $updatedAt): void
