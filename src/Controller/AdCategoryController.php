@@ -1,9 +1,9 @@
 <?php
+
 /**
- *
  * AdCategory Controller.
- *
  */
+
 namespace App\Controller;
 
 use App\Entity\AdCategory;
@@ -18,18 +18,33 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- *
  * Class AdCategoryController.
- *
  */
 #[Route('/adCategory')]
 class AdCategoryController extends AbstractController
 {
-
+    /**
+     * AdCategoryServiceInterface.
+     *
+     * @var AdCategoryServiceInterface Ad category service interface
+     *
+     */
     private AdCategoryServiceInterface $adCategoryService;
 
+    /**
+     * TranslatorInterface.
+     *
+     * @var TranslatorInterface Translator interface
+     *
+     */
     private TranslatorInterface $translator;
 
+    /**
+     * Constructor.
+     *
+     * @param AdCategoryServiceInterface $adCategoryService Ad Category service interface
+     * @param TranslatorInterface $translator Translator interface
+     */
     public function __construct(AdCategoryServiceInterface $adCategoryService, TranslatorInterface $translator)
     {
         $this->adCategoryService = $adCategoryService;
@@ -40,10 +55,9 @@ class AdCategoryController extends AbstractController
      * Index action.
      *
      * @param Request $request
-     * @return Response
      *
+     * @return Response
      */
-
     #[Route(
         name: 'adCategory_index',
         methods: 'get'
@@ -51,10 +65,10 @@ class AdCategoryController extends AbstractController
     public function index(Request $request): Response
     {
         $pagination = $this->adCategoryService->getPaginatedList(
-          $request->query->getInt('page', 1)
+            $request->query->getInt('page', 1)
         );
-        if($this->isGranted('ROLE_ADMIN')) {
-            return $this->render('adCategory/admin.index.html.twig', ['pagination'=>$pagination]);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            return $this->render('adCategory/admin.index.html.twig', ['pagination' => $pagination]);
         } else {
             return $this->render('adCategory/index.html.twig', ['pagination' => $pagination]);
         }
@@ -64,8 +78,8 @@ class AdCategoryController extends AbstractController
      * Show action.
      *
      * @param AdCategory $adCategory
-     * @return Response
      *
+     * @return Response
      */
     #[Route(
         '/{id}',
@@ -78,7 +92,7 @@ class AdCategoryController extends AbstractController
     {
         return $this->render(
             'adCategory/show.html.twig',
-            ['adCategory'=>$adCategory]
+            ['adCategory' => $adCategory]
         );
     }
 
@@ -86,8 +100,8 @@ class AdCategoryController extends AbstractController
      * Create action.
      *
      * @param Request $request
-     * @return Response
      *
+     * @return Response
      */
     #[Route(
         '/create',
@@ -101,7 +115,7 @@ class AdCategoryController extends AbstractController
         $form = $this->createForm(AdCategoryType::class, $adCategory);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->adCategoryService->save($adCategory);
 
             $this->addFlash(
@@ -114,18 +128,17 @@ class AdCategoryController extends AbstractController
 
         return $this->render(
             'adCategory/create.html.twig',
-            ['form'=>$form->createView()]
+            ['form' => $form->createView()]
         );
-
     }
 
     /**
      * Edit action.
      *
-     * @param Request $request
+     * @param Request    $request
      * @param AdCategory $adCategory
-     * @return Response
      *
+     * @return Response
      */
     #[Route(
         '/admin/{id}/edit',
@@ -165,10 +178,10 @@ class AdCategoryController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request $request
+     * @param Request    $request
      * @param AdCategory $adCategory
-     * @return Response
      *
+     * @return Response
      */
     #[Route(
         '/{id}/delete',
@@ -179,8 +192,7 @@ class AdCategoryController extends AbstractController
     #[IsGranted('ROLE_ADMIN')]
     public function delete(Request $request, AdCategory $adCategory): Response
     {
-
-        if(!$this->adCategoryService->canBeDeleted($adCategory)) {
+        if (!$this->adCategoryService->canBeDeleted($adCategory)) {
             $this->addFlash(
                 'warning',
                 $this->translator->trans('message.category_contains_ads')
@@ -214,5 +226,4 @@ class AdCategoryController extends AbstractController
             ]
         );
     }
-
 }

@@ -1,9 +1,9 @@
 <?php
+
 /**
- *
  * LoginFormAuthenticator.
- *
  */
+
 namespace App\Security;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -20,33 +20,26 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 /**
- *
  * Class LoginFormAuthenticator.
- *
  */
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
     /**
-     *
-     * Route after log in.
-     *
+     * Log in route.
      */
     public const LOGIN_ROUTE = 'app_login';
 
     /**
-     *
      * Default route.
-     *
      */
     public const DEFAULT_ROUTE = 'main_index';
 
     /**
      * UrlGeneratorInterface.
      *
-     * @var UrlGeneratorInterface
-     *
+     * @var UrlGeneratorInterface Url generator interface
      */
     private UrlGeneratorInterface $urlGenerator;
 
@@ -54,7 +47,6 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      * Constructor.
      *
      * @param UrlGeneratorInterface $urlGenerator Url generator interface
-     *
      */
     public function __construct(UrlGeneratorInterface $urlGenerator)
     {
@@ -65,8 +57,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      * Supports.
      *
      * @param Request $request
-     * @return bool
      *
+     * @return bool
      */
     public function supports(Request $request): bool
     {
@@ -77,8 +69,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      * Authenticate.
      *
      * @param Request $request
-     * @return Passport
      *
+     * @return Passport
      */
     public function authenticate(Request $request): Passport
     {
@@ -101,8 +93,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      * @param Request $request
      * @param TokenInterface $token
      * @param string $firewallName
-     * @return Response|null
      *
+     * @return Response|null
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
@@ -117,8 +109,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      * Get log in url.
      *
      * @param Request $request
-     * @return string
      *
+     * @return string
      */
     protected function getLoginUrl(Request $request): string
     {

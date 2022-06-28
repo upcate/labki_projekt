@@ -1,18 +1,16 @@
 <?php
+
 /**
- *
- * AdCategoryServiceInterface,
- *
+ * AdCategoryServiceInterface,.
  */
+
 namespace App\Service;
 
 use App\Entity\AdCategory;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
- *
  * Interface AdCategoryServiceInterface.
- *
  */
 interface AdCategoryServiceInterface
 {
@@ -20,8 +18,8 @@ interface AdCategoryServiceInterface
      * Get paginated list.
      *
      * @param int $page
-     * @return PaginationInterface
      *
+     * @return PaginationInterface
      */
     public function getPaginatedList(int $page): PaginationInterface;
 
@@ -29,8 +27,8 @@ interface AdCategoryServiceInterface
      * Save.
      *
      * @param AdCategory $adCategory
-     * @return void
      *
+     * @return void
      */
     public function save(AdCategory $adCategory): void;
 
@@ -38,8 +36,8 @@ interface AdCategoryServiceInterface
      * Delete.
      *
      * @param AdCategory $adCategory
-     * @return void
      *
+     * @return void
      */
     public function delete(AdCategory $adCategory): void;
 
@@ -47,8 +45,8 @@ interface AdCategoryServiceInterface
      * Check can be deleted.
      *
      * @param AdCategory $adCategory
-     * @return bool
      *
+     * @return bool
      */
     public function canBeDeleted(AdCategory $adCategory): bool;
 }

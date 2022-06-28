@@ -1,9 +1,9 @@
 <?php
+
 /**
- *
  * UserFixtures.
- *
  */
+
 namespace App\DataFixtures;
 
 use App\Entity\Enum\UserRole;
@@ -11,41 +11,34 @@ use App\Entity\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
- *
  * Class UserFixtures.
- *
  */
 class UserFixtures extends AbstractBaseFixtures
 {
     /**
-     *UserPasswordHasherInterface
+     * UserPasswordHasherInterface.
      *
-     * @var UserPasswordHasherInterface
-     *
+     * @var UserPasswordHasherInterface User password hasher interface
      */
     private UserPasswordHasherInterface $hasher;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param UserPasswordHasherInterface $hasher User Password Hasher Interface
-     *
      */
     public function __construct(UserPasswordHasherInterface $hasher)
     {
         $this->hasher = $hasher;
     }
 
-
     /**
-     * Load Data.
+     * Load data.
      *
      * @return void
-     *
      */
     protected function loadData(): void
     {
-
         $this->createMany(1, 'admin', function ($i) {
             $user = new User();
             $user->setUsername('admin');
@@ -56,9 +49,9 @@ class UserFixtures extends AbstractBaseFixtures
                     'admin1234',
                 )
             );
+
             return $user;
         });
         $this->manager->flush();
     }
-
 }

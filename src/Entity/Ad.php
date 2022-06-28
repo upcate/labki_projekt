@@ -1,22 +1,19 @@
 <?php
+
 /**
- *
  * Ad.
- *
  */
+
 namespace App\Entity;
 
 use App\Repository\AdRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use DateTimeImmutable;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- *
  * Class Ad.
- *
  */
 #[ORM\Entity(repositoryClass: AdRepository::class)]
 #[ORM\Table(name: 'ads')]
@@ -26,7 +23,6 @@ class Ad
      * Primary key.
      *
      * @var int|null
-     *
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -37,29 +33,26 @@ class Ad
      * Is visible.
      *
      * @var int|null
-     *
      */
     #[ORM\Column(type: 'integer')]
     #[Assert\Type('integer')]
-    private ?int $is_visible = null;
+    private ?int $isVisible = null;
 
     /**
      * Username.
      *
      * @var string|null
-     *
      */
-    #[ORM\Column(type: 'string', length: 20)]
+    #[ORM\Column(type: 'string', length: 30)]
     #[Assert\Type('string')]
     #[Assert\NotBlank]
-    #[Assert\Length(min: 3, max: 20)]
+    #[Assert\Length(min: 3, max: 30)]
     private ?string $username = null;
 
     /**
      * Email.
      *
      * @var string|null
-     *
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\NotBlank]
@@ -70,7 +63,6 @@ class Ad
      * Phone number.
      *
      * @var string|null
-     *
      */
     #[ORM\Column(type: 'string', length: 9)]
     #[Assert\NotBlank]
@@ -82,7 +74,6 @@ class Ad
      * Title.
      *
      * @var string|null
-     *
      */
     #[ORM\Column(type: 'string', length: 128)]
     #[Assert\NotBlank]
@@ -93,7 +84,6 @@ class Ad
      * Text.
      *
      * @var string|null
-     *
      */
     #[ORM\Column(type: 'string', length: 255)]
     #[Assert\NotBlank]
@@ -104,7 +94,6 @@ class Ad
      * Created At.
      *
      * @var DateTimeImmutable|null
-     *
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
@@ -114,7 +103,6 @@ class Ad
      * Updated At.
      *
      * @var DateTimeImmutable|null
-     *
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
@@ -124,17 +112,15 @@ class Ad
      * Ad Category.
      *
      * @var AdCategory|null
-     *
      */
     #[ORM\ManyToOne(targetEntity: AdCategory::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
     private ?AdCategory $adCategory = null;
 
     /**
-     * Getter for Id.
+     * Getter for id.
      *
      * @return int|null
-     *
      */
     public function getId(): ?int
     {
@@ -142,33 +128,31 @@ class Ad
     }
 
     /**
-     * Getter for Is visible.
+     * Getter for is visible.
      *
      * @return int|null
-     *
      */
     public function getIsVisible(): ?int
     {
-        return $this->is_visible;
+        return $this->isVisible;
     }
 
     /**
-     * Setter for IsVisible.
+     * Setter for is visible.
      *
-     * @param int $is_visible
+     * @param int $isVisible
+     *
      * @return void
-     *
      */
-    public function setIsVisible(int $is_visible): void
+    public function setIsVisible(int $isVisible): void
     {
-        $this->is_visible = $is_visible;
+        $this->isVisible = $isVisible;
     }
 
     /**
-     * Getter for Username.
+     * Getter for username.
      *
      * @return string|null
-     *
      */
     public function getUsername(): ?string
     {
@@ -176,11 +160,11 @@ class Ad
     }
 
     /**
-     * Setter for Username.
+     * Setter for username.
      *
      * @param string $username
-     * @return void
      *
+     * @return void
      */
     public function setUsername(string $username): void
     {
@@ -188,10 +172,9 @@ class Ad
     }
 
     /**
-     * Getter for Email.
+     * Getter for email.
      *
      * @return string|null
-     *
      */
     public function getEmail(): ?string
     {
@@ -202,8 +185,8 @@ class Ad
      * Setter for email.
      *
      * @param string $email
-     * @return void
      *
+     * @return void
      */
     public function setEmail(string $email): void
     {
@@ -211,10 +194,9 @@ class Ad
     }
 
     /**
-     * Getter for Phone number.
+     * Getter for phone.
      *
      * @return string|null
-     *
      */
     public function getPhone(): ?string
     {
@@ -222,11 +204,11 @@ class Ad
     }
 
     /**
-     * Setter for Phone number.
+     * Setter for phone.
      *
      * @param string $phone
-     * @return void
      *
+     * @return void
      */
     public function setPhone(string $phone): void
     {
@@ -234,10 +216,9 @@ class Ad
     }
 
     /**
-     * Getter for Created At.
+     * Getter for created at.
      *
      * @return DateTimeImmutable|null
-     *
      */
     public function getCreatedAt(): ?DateTimeImmutable
     {
@@ -245,11 +226,11 @@ class Ad
     }
 
     /**
-     * Setter for Created At.
+     * Setter for created at.
      *
      * @param DateTimeImmutable|null $createdAt
-     * @return void
      *
+     * @return void
      */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
@@ -257,10 +238,9 @@ class Ad
     }
 
     /**
-     * Getter for Text.
+     * Getter for text.
      *
      * @return string|null
-     *
      */
     public function getText(): ?string
     {
@@ -268,11 +248,11 @@ class Ad
     }
 
     /**
-     * Setter for Text.
+     * Setter for text.
      *
      * @param string $text
-     * @return void
      *
+     * @return void
      */
     public function setText(string $text): void
     {
@@ -280,10 +260,9 @@ class Ad
     }
 
     /**
-     * Getter for Title.
+     * Getter for title.
      *
      * @return string|null
-     *
      */
     public function getTitle(): ?string
     {
@@ -291,11 +270,11 @@ class Ad
     }
 
     /**
-     * Setter for Title.
+     * Setter for title.
      *
      * @param string $title
-     * @return void
      *
+     * @return void
      */
     public function setTitle(string $title): void
     {
@@ -303,10 +282,9 @@ class Ad
     }
 
     /**
-     * Getter for Updated At.
+     * Getter for updated at.
      *
      * @return DateTimeImmutable|null
-     *
      */
     public function getUpdatedAt(): ?DateTimeImmutable
     {
@@ -314,11 +292,10 @@ class Ad
     }
 
     /**
-     * Setter for Updated At.
+     * Setter for updated at.
      *
      * @param DateTimeImmutable $updatedAt
      * @return void
-     *
      */
     public function setUpdatedAt(DateTimeImmutable $updatedAt): void
     {
@@ -326,10 +303,9 @@ class Ad
     }
 
     /**
-     * Getter for Ad Category.
+     * Getter for ad category.
      *
      * @return AdCategory|null
-     *
      */
     public function getAdCategory(): ?AdCategory
     {
@@ -337,7 +313,10 @@ class Ad
     }
 
     /**
+     * Setter for ad category.
+     *
      * @param AdCategory|null $adCategory
+     *
      * @return void
      */
     public function setAdCategory(?AdCategory $adCategory): void

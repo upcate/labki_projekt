@@ -34,8 +34,8 @@
                 <tr>
                     <td>{{ adCategory.id }}</td>
                     <td>{{ adCategory.name }}</td>
-                    <td>{{ adCategory.createdAt|date('Y/m/d') }}</td>
-                    <td>{{ adCategory.updatedAt|date('Y/m/d') }}</td>
+                    <td>{{ adCategory.createdAt|format_date(locale='pl') }}</td>
+                    <td>{{ adCategory.updatedAt|format_date(locale='pl') }}</td>
                     <td>
                         <a href="{{ url('adCategory_show', {id: adCategory.id}) }}" title="{{ 'action.view'|trans }}">
                             {{ 'action.view'|trans }}

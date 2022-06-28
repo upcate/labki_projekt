@@ -13,9 +13,9 @@
             <dt>{{ 'label.name'|trans }}</dt>
             <dd>{{  adCategory.name }}</dd>
             <dt>{{ 'label.createdAt'|trans }}</dt>
-            <dd>{{ adCategory.createdAt|date('Y/m/d') }}</dd>
+            <dd>{{ adCategory.createdAt|format_date(locale='pl') }}</dd>
             <dt>{{ 'label.updatedAt'|trans }}</dt>
-            <dd>{{ adCategory.updatedAt|date('Y/m/d') }}</dd>
+            <dd>{{ adCategory.updatedAt|format_date(locale='pl') }}</dd>
         </dl>
         <p>
             <a href="{{ url('adCategory_index') }}" title="{{ 'action.back_to_list'|trans }}">

@@ -1,9 +1,9 @@
 <?php
+
 /**
- *
  * AdRepository.
- *
  */
+
 namespace App\Repository;
 
 use App\Entity\Ad;
@@ -25,9 +25,7 @@ use Doctrine\Persistence\ManagerRegistry;
 class AdRepository extends ServiceEntityRepository
 {
     /**
-     *
      * Items per page.
-     *
      */
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
@@ -35,7 +33,6 @@ class AdRepository extends ServiceEntityRepository
      * Constructor.
      *
      * @param ManagerRegistry $registry Manager Registry
-     *
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -43,17 +40,17 @@ class AdRepository extends ServiceEntityRepository
     }
 
     /**
-     * Query all.
+     * Query All.
      *
      * @param array $filters
-     * @return QueryBuilder
      *
+     * @return QueryBuilder
      */
     public function queryAll(array $filters): QueryBuilder
     {
         $queryBuilder = $this->getOrCreateQueryBuilder()
-            ->select('partial ad.{id, createdAt, updatedAt, title, text, is_visible, phone, username}', 'partial adCategory.{id, name}')
-            ->where('ad.is_visible = 1')
+            ->select('partial ad.{id, createdAt, updatedAt, title, text, isVisible, phone, username}', 'partial adCategory.{id, name}')
+            ->where('ad.isVisible = 1')
             ->join('ad.adCategory', 'adCategory')
             ->orderBy('ad.updatedAt', 'DESC');
 
@@ -61,48 +58,17 @@ class AdRepository extends ServiceEntityRepository
     }
 
     /**
-     * Apply filters to list.
-     *
-     * @param QueryBuilder $queryBuilder
-     * @param array $filters
-     * @return QueryBuilder
-     *
-     */
-    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
-    {
-        if (isset($filters['adCategory']) && $filters['adCategory'] instanceof AdCategory) {
-            $queryBuilder->andWhere('adCategory = :adCategory')
-                ->setParameter('adCategory', $filters['adCategory']);
-        }
-
-        return $queryBuilder;
-    }
-
-    /**
      * Query ads to accept.
      *
      * @return QueryBuilder
-     *
      */
     public function queryToAccept(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->select('partial ad.{id, createdAt, updatedAt, title, text, is_visible, phone, username}', 'partial adCategory.{id, name}')
-            ->where('ad.is_visible = 0')
+            ->select('partial ad.{id, createdAt, updatedAt, title, text, isVisible, phone, username}', 'partial adCategory.{id, name}')
+            ->where('ad.isVisible = 0')
             ->join('ad.adCategory', 'adCategory')
             ->orderBy('ad.createdAt', 'DESC');
-    }
-
-    /**
-     * Get or create query builder.
-     *
-     * @param QueryBuilder|null $queryBuilder
-     * @return QueryBuilder
-     *
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('ad');
     }
 
     /**
@@ -110,8 +76,8 @@ class AdRepository extends ServiceEntityRepository
      *
      * @param Ad $entity
      * @param bool $flush
-     * @return void
      *
+     * @return void
      */
     public function add(Ad $entity, bool $flush = false): void
     {
@@ -127,8 +93,8 @@ class AdRepository extends ServiceEntityRepository
      *
      * @param Ad $entity
      * @param bool $flush
-     * @return void
      *
+     * @return void
      */
     public function remove(Ad $entity, bool $flush = false): void
     {
@@ -142,11 +108,8 @@ class AdRepository extends ServiceEntityRepository
     /**
      * Count by category.
      *
-     * @param AdCategory $adCategory
-     * @return int
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
-     *
      */
     public function countByCategory(AdCategory $adCategory): int
     {
@@ -163,8 +126,8 @@ class AdRepository extends ServiceEntityRepository
      * Save.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function save(Ad $ad): void
     {
@@ -176,13 +139,43 @@ class AdRepository extends ServiceEntityRepository
      * Delete.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function delete(Ad $ad): void
     {
         $this->_em->remove($ad);
         $this->_em->flush();
+    }
+
+    /**
+     * Apply filters to the list.
+     *
+     * @param QueryBuilder $queryBuilder
+     * @param array $filters
+     *
+     * @return QueryBuilder
+     */
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    {
+        if (isset($filters['adCategory']) && $filters['adCategory'] instanceof AdCategory) {
+            $queryBuilder->andWhere('adCategory = :adCategory')
+                ->setParameter('adCategory', $filters['adCategory']);
+        }
+
+        return $queryBuilder;
+    }
+
+    /**
+     * Get ot create query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder
+     *
+     * @return QueryBuilder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('ad');
     }
 
 //    /**

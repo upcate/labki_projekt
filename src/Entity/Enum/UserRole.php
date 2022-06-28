@@ -1,15 +1,13 @@
 <?php
+
 /**
- *
  * UserRole.
- *
  */
+
 namespace App\Entity\Enum;
 
 /**
- *
  * Enum UserRole.
- *
  */
 enum UserRole: string
 {
@@ -19,11 +17,10 @@ enum UserRole: string
      * Label.
      *
      * @return string
-     *
      */
     public function label(): string
     {
-        return match($this) {
+        return match ($this) {
             UserRole::ROLE_ADMIN => 'ROLE_ADMIN',
         };
     }

@@ -1,12 +1,10 @@
 <?php
+
 /**
- *
  * UserController.
- *
  */
+
 namespace App\Controller;
-
-
 
 use App\Entity\User;
 use App\Form\Type\UserType;
@@ -19,27 +17,22 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- *
  * Class UserController.
- *
  */
 #[Route('/admin')]
 class UserController extends AbstractController
 {
-
     /**
      * UserServiceInterface.
      *
-     * @var UserServiceInterface
-     *
+     * @var UserServiceInterface User service interface
      */
     private UserServiceInterface $userService;
 
     /**
-     * TranslatorInterface
+     * TranslatorInterface.
      *
-     * @var TranslatorInterface
-     *
+     * @var TranslatorInterface Translator interface
      */
     private TranslatorInterface $translator;
 
@@ -47,8 +40,7 @@ class UserController extends AbstractController
      * Constructor.
      *
      * @param UserServiceInterface $userService User Interface
-     * @param TranslatorInterface $translator Translator Interface
-     *
+     * @param TranslatorInterface  $translator  Translator Interface
      */
     public function __construct(UserServiceInterface $userService, TranslatorInterface $translator)
     {
@@ -60,9 +52,9 @@ class UserController extends AbstractController
      * Edit action.
      *
      * @param Request $request
-     * @param User $user
-     * @return Response
+     * @param User    $user
      *
+     * @return Response
      */
     #[Route(
         '/{id}/edit',
@@ -75,7 +67,7 @@ class UserController extends AbstractController
     {
         $form = $this->createForm(UserType::class, $user, [
             'method' => 'PUT',
-            'action' => $this->generateUrl('user_edit', ['id'=>$user->getId()]),
+            'action' => $this->generateUrl('user_edit', ['id' => $user->getId()]),
         ]);
         $form->handleRequest($request);
 
@@ -91,13 +83,11 @@ class UserController extends AbstractController
         }
 
         return $this->render(
-          'admin/edit.html.twig',
-          [
+            'admin/edit.html.twig',
+            [
               'form' => $form->createView(),
               'user' => $user,
-          ]
+            ]
         );
     }
-
-
 }

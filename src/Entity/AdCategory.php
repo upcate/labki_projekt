@@ -1,22 +1,20 @@
 <?php
+
 /**
- *
- * AdCategory
- *
+ * AdCategory.
  */
+
 namespace App\Entity;
 
 use App\Repository\AdCategoryRepository;
-use Doctrine\ORM\Mapping as ORM;
 use DateTimeImmutable;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- *
  * Class AdCategory.
- *
  */
 #[ORM\Entity(repositoryClass: AdCategoryRepository::class)]
 #[ORM\Table(name: 'adCategories')]
@@ -28,7 +26,6 @@ class AdCategory
      * Primary Key.
      *
      * @var int|null
-     *
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -39,7 +36,6 @@ class AdCategory
      * Created At.
      *
      * @var DateTimeImmutable|null
-     *
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\Type(DateTimeImmutable::class)]
@@ -50,7 +46,6 @@ class AdCategory
      * Updated At.
      *
      * @var DateTimeImmutable|null
-     *
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\Type(DateTimeImmutable::class)]
@@ -61,7 +56,6 @@ class AdCategory
      * Name.
      *
      * @var string|null
-     *
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\Type('string')]
@@ -76,7 +70,6 @@ class AdCategory
      * Slug.
      *
      * @var string|null
-     *
      */
     #[ORM\Column(type: 'string', length: 64)]
     #[Assert\Type('string')]
@@ -85,10 +78,9 @@ class AdCategory
     private ?string $slug;
 
     /**
-     * Getter for Id.
+     * Getter for id.
      *
      * @return int|null
-     *
      */
     public function getId(): ?int
     {
@@ -96,10 +88,9 @@ class AdCategory
     }
 
     /**
-     * Getter for Created At.
+     * Getter for created at.
      *
      * @return DateTimeImmutable|null
-     *
      */
     public function getCreatedAt(): ?DateTimeImmutable
     {
@@ -107,11 +98,11 @@ class AdCategory
     }
 
     /**
-     * Setter for Created At.
+     * Setter for created at.
      *
      * @param DateTimeImmutable $createdAt
-     * @return void
      *
+     * @return void
      */
     public function setCreatedAt(DateTimeImmutable $createdAt): void
     {
@@ -119,10 +110,9 @@ class AdCategory
     }
 
     /**
-     * Getter for UpdatedAt.
+     * Getter for updated at.
      *
      * @return DateTimeImmutable|null
-     *
      */
     public function getUpdatedAt(): ?DateTimeImmutable
     {
@@ -130,11 +120,11 @@ class AdCategory
     }
 
     /**
-     * Setter for Updated At.
+     * Setter for updated at.
      *
      * @param DateTimeImmutable $updatedAt
-     * @return void
      *
+     * @return void
      */
     public function setUpdatedAt(DateTimeImmutable $updatedAt): void
     {
@@ -142,10 +132,9 @@ class AdCategory
     }
 
     /**
-     * Getter for Name.
+     * Getter for name.
      *
      * @return string|null
-     *
      */
     public function getName(): ?string
     {
@@ -153,11 +142,11 @@ class AdCategory
     }
 
     /**
-     * Setter For Name.
+     * Setter for name.
      *
      * @param string $name
-     * @return void
      *
+     * @return void
      */
     public function setName(string $name): void
     {
@@ -165,10 +154,9 @@ class AdCategory
     }
 
     /**
-     * Getter For Slug.
+     * Getter for slug.
      *
      * @return string|null
-     *
      */
     public function getSlug(): ?string
     {
@@ -176,11 +164,11 @@ class AdCategory
     }
 
     /**
-     * Setter for Slug.
+     * Setter for slug.
      *
      * @param string $slug
-     * @return void
      *
+     * @return void
      */
     public function setSlug(string $slug): void
     {

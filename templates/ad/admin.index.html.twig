@@ -35,8 +35,8 @@
                             <td>{{ ad.id }}</td>
                             <td>{{ ad.username }}</td>
                             <td>{{ ad.title }}</td>
-                            <td>{{ ad.createdAt|date('Y/m/d') }}</td>
-                            <td>{{ ad.updatedAt|date('Y/m/d') }}</td>
+                            <td>{{ ad.createdAt|format_date(locale='pl') }}</td>
+                            <td>{{ ad.updatedAt|format_date(locale='pl') }}</td>
                             <td>{{ ad.adCategory.name }}</td>
                             <td>
                                 <a href="{{ url('ad_show', {id: ad.id}) }}" title="{{ 'action.view'|trans }}">

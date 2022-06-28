@@ -1,47 +1,43 @@
 <?php
+
 /**
- *
  * AdCategoryFixtures.
- *
  */
+
 namespace App\DataFixtures;
 
 use App\Entity\AdCategory;
 use DateTimeImmutable;
 
 /**
- *
  * Class AdCategoryFixtures.
- *
  */
 class AdCategoryFixtures extends AbstractBaseFixtures
 {
-
     /**
-     * Load Data.
+     * Load data.
      *
      * @return void
-     *
      */
     public function loadData(): void
     {
-        $this->createMany(20, 'adCategories', function(int $i) {
-                $adCategory = new AdCategory();
-                $adCategory->setName($this->faker->unique()->word);
-                $adCategory->setCreatedAt(
-                    DateTimeImmutable::createFromMutable(
-                        $this->faker->dateTimeBetween('-100 days', '-1 days')
-                    )
-                );
-                $adCategory->setUpdatedAt(
-                    DateTimeImmutable::createFromMutable(
+        $this->createMany(20, 'adCategories', function (int $i) {
+            $adCategory = new AdCategory();
+            $adCategory->setName($this->faker->unique()->word);
+            $adCategory->setCreatedAt(
+                DateTimeImmutable::createFromMutable(
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
-                    )
-                );
-                return $adCategory;
-            });
+                )
+            );
+            $adCategory->setUpdatedAt(
+                DateTimeImmutable::createFromMutable(
+                    $this->faker->dateTimeBetween('-100 days', '-1 days')
+                )
+            );
+
+            return $adCategory;
+        });
 
         $this->manager->flush();
     }
-
 }

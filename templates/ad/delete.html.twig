@@ -22,9 +22,9 @@
             <dt>{{ 'label.text'|trans }}</dt>
             <dd>{{  ad.text }}</dd>
             <dt>{{ 'label.createdAt'|trans }}</dt>
-            <dd>{{ ad.createdAt|date('Y/m/d') }}</dd>
+            <dd>{{ ad.createdAt|format_date(locale='pl') }}</dd>
             <dt>{{ 'label.updatedAt'|trans }}</dt>
-            <dd>{{ ad.updatedAt|date('Y/m/d') }}</dd>
+            <dd>{{ ad.updatedAt|format_date(locale='pl') }}</dd>
             <dt>{{ 'label.category'|trans }}</dt>
             <dd>{{ ad.adCategory.name }}</dd>
         </dl>

@@ -1,98 +1,101 @@
 <?php
+
 /**
- *
- * AdType
- *
+ * AdType.
  */
+
 namespace App\Form\Type;
 
 use App\Entity\Ad;
 use App\Entity\AdCategory;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- *
  * Class AdType.
- *
  */
 class AdType extends AbstractType
 {
-
     /**
-     * Build form.
+     * Build Form.
      *
      * @param FormBuilderInterface $builder
      * @param array $options
-     * @return void
      *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-          'title',
+            'title',
             TextType::class,
             [
                 'label' => 'label.title',
                 'required' => 'true',
-                'attr' => ['max_length' => 255]
-            ]);
+                'attr' => ['max_length' => 255],
+            ]
+        );
         $builder->add(
-          'username',
+            'username',
             TextType::class,
             [
                 'label' => 'label.username',
                 'required' => 'true',
-                'attr' => ['max_length' => 255]
-            ]);
+                'attr' => ['max_length' => 255],
+            ]
+        );
         $builder->add(
-          'email',
-          EmailType::class,
-          [
+            'email',
+            EmailType::class,
+            [
               'label' => 'label.email',
               'required' => 'true',
-              'attr' => ['max_length' => 255]
-          ]);
+              'attr' => ['max_length' => 255],
+            ]
+        );
         $builder->add(
-          'phone',
-          TextType::class,
-          [
+            'phone',
+            TextType::class,
+            [
               'label' => 'label.phone',
               'required' => 'true',
-              'attr' => ['max_length' => 255]
-          ]);
+              'attr' => ['max_length' => 255],
+            ]
+        );
         $builder->add(
-          'text',
-          TextType::class,
-          [
+            'text',
+            TextType::class,
+            [
               'label' => 'label.text',
               'required' => 'true',
-              'attr' => ['max_length' => 255]
-          ]);
+              'attr' => ['max_length' => 255],
+            ]
+        );
         $builder->add(
-          'adCategory',
-          EntityType::class,
-          [
+            'adCategory',
+            EntityType::class,
+            [
               'class' => AdCategory::class,
-              'choice_label' => function($adCategory): string {
-                return $adCategory->getName();
+              'choice_label' => function ($adCategory): string {
+                  return $adCategory->getName();
               },
               'label' => 'label.category',
               'placeholder' => 'label.none',
               'required' => 'true',
-          ]);
+            ]
+        );
     }
 
     /**
-     * Configure Options.
+     * Configure options.
      *
      * @param OptionsResolver $resolver
-     * @return void
      *
+     * @return void
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -100,14 +103,12 @@ class AdType extends AbstractType
     }
 
     /**
-     * Get block by prefix.
+     * Get block prefix.
      *
      * @return string
-     *
      */
     public function getBlockPrefix(): string
     {
         return 'ad';
     }
-
 }

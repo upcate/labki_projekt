@@ -1,9 +1,9 @@
 <?php
+
 /**
- *
  * AdController.
- *
  */
+
 namespace App\Controller;
 
 use App\Entity\Ad;
@@ -18,9 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- *
  * Class AdController.
- *
  */
 #[Route('/ad')]
 class AdController extends AbstractController
@@ -28,25 +26,22 @@ class AdController extends AbstractController
     /**
      * AdServiceInterface.
      *
-     * @var AdServiceInterface
-     *
+     * @var AdServiceInterface Ad service interface
      */
     private AdServiceInterface $adService;
 
     /**
      * TranslatorInterface.
      *
-     * @var TranslatorInterface
-     *
+     * @var TranslatorInterface Translator interface
      */
     private TranslatorInterface $translator;
 
     /**
      * Constructor.
      *
-     * @param AdServiceInterface $adService Ad Service Interface
+     * @param AdServiceInterface  $adService  Ad Service Interface
      * @param TranslatorInterface $translator Translator
-     *
      */
     public function __construct(AdServiceInterface $adService, TranslatorInterface $translator)
     {
@@ -58,8 +53,8 @@ class AdController extends AbstractController
      * Index action.
      *
      * @param Request $request
-     * @return Response
      *
+     * @return Response
      */
     #[Route(
         name: 'ad_index',
@@ -75,12 +70,18 @@ class AdController extends AbstractController
 
         if ($this->isGranted('ROLE_ADMIN')) {
             return $this->render('ad/admin.index.html.twig', ['pagination' => $pagination]);
-        } else {
-            return $this->render('ad/index.html.twig', ['pagination' => $pagination]);
         }
+
+        return $this->render('ad/index.html.twig', ['pagination' => $pagination]);
+
     }
 
-
+    /**
+     * Get filters.
+     *
+     * @param Request $request
+     * @return array
+     */
     public function getFilters(Request $request): array
     {
         $filters = [];
@@ -93,8 +94,8 @@ class AdController extends AbstractController
      * Index to accept action.
      *
      * @param Request $request
-     * @return Response
      *
+     * @return Response
      */
     #[Route(
         '/toAccept',
@@ -115,9 +116,9 @@ class AdController extends AbstractController
      * Accept action.
      *
      * @param Request $request
-     * @param Ad $ad
-     * @return Response
+     * @param Ad      $ad
      *
+     * @return Response
      */
     #[Route(
         '/{id}/accept',
@@ -126,11 +127,11 @@ class AdController extends AbstractController
         methods: 'GET|PUT',
     )]
     #[IsGranted('ROLE_ADMIN')]
-    public function acceptAd(Request $request,Ad $ad): Response
+    public function acceptAd(Request $request, Ad $ad): Response
     {
         $form = $this->createForm(FormType::class, $ad, [
-                'method'=>'PUT',
-                'action'=>$this->generateUrl('ad_accept',['id'=>$ad->getId()]),
+                'method' => 'PUT',
+                'action' => $this->generateUrl('ad_accept', ['id' => $ad->getId()]),
             ]);
         $form->handleRequest($request);
 
@@ -146,21 +147,20 @@ class AdController extends AbstractController
         }
 
         return $this->render(
-          '/ad/accept.html.twig',
-          [
+            '/ad/accept.html.twig',
+            [
               'ad' => $ad,
               'form' => $form->createView(),
-          ]
+            ]
         );
     }
-
 
     /**
      * Show action.
      *
      * @param Ad $ad
-     * @return Response
      *
+     * @return Response
      */
     #[Route(
         '/{id}',
@@ -180,8 +180,8 @@ class AdController extends AbstractController
      * Create action.
      *
      * @param Request $request
-     * @return Response
      *
+     * @return Response
      */
     #[Route(
         '/create',
@@ -190,13 +190,12 @@ class AdController extends AbstractController
     )]
     public function create(Request $request): Response
     {
-
         $ad = new Ad();
-        $form = $this->createForm(AdType::class, $ad, ['action' => $this->generateUrl('ad_create'), ]);
+        $form = $this->createForm(AdType::class, $ad, ['action' => $this->generateUrl('ad_create')]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if($this->isGranted('ROLE_ADMIN')) {
+            if ($this->isGranted('ROLE_ADMIN')) {
                 $this->adService->saveOnCreateAdm($ad);
             } else {
                 $this->adService->saveOnCreateUs($ad);
@@ -211,19 +210,20 @@ class AdController extends AbstractController
         }
 
         return $this->render(
-          'ad/create.html.twig',
-          [
+            'ad/create.html.twig',
+            [
               'form' => $form->createView(),
-          ]);
+            ]
+        );
     }
 
     /**
      * Edit action.
      *
      * @param Request $request
-     * @param Ad $ad
-     * @return Response
+     * @param Ad      $ad
      *
+     * @return Response
      */
     #[Route(
         '/{id}/edit',
@@ -261,9 +261,9 @@ class AdController extends AbstractController
      * Delete action.
      *
      * @param Request $request
-     * @param Ad $ad
-     * @return Response
+     * @param Ad      $ad
      *
+     * @return Response
      */
     #[Route(
         '/{id}/delete',
@@ -301,9 +301,9 @@ class AdController extends AbstractController
      * Delete to accept action.
      *
      * @param Request $request
-     * @param Ad $ad
-     * @return Response
+     * @param Ad      $ad
      *
+     * @return Response
      */
     #[Route(
         '/{id}/accept/delete',
@@ -336,5 +336,4 @@ class AdController extends AbstractController
             'ad' => $ad,
         ]);
     }
-
 }

@@ -1,18 +1,16 @@
 <?php
+
 /**
- *
  * AdServiceInterface.
- *
  */
+
 namespace App\Service;
 
 use App\Entity\Ad;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
- *
  * Interface AdServiceInterface.
- *
  */
 interface AdServiceInterface
 {
@@ -20,8 +18,8 @@ interface AdServiceInterface
      * Get paginated list.
      *
      * @param int $page
-     * @return PaginationInterface
      *
+     * @return PaginationInterface
      */
     public function getPaginatedList(int $page): PaginationInterface;
 
@@ -29,8 +27,8 @@ interface AdServiceInterface
      * Save.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function save(Ad $ad): void;
 
@@ -38,8 +36,8 @@ interface AdServiceInterface
      * Save on creation by admin.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function saveOnCreateAdm(Ad $ad): void;
 
@@ -47,8 +45,8 @@ interface AdServiceInterface
      * Save on creation by user.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function saveOnCreateUs(Ad $ad): void;
 
@@ -56,8 +54,8 @@ interface AdServiceInterface
      * Make ad visible.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function makeVisible(Ad $ad): void;
 
@@ -65,8 +63,8 @@ interface AdServiceInterface
      * Delete.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function delete(Ad $ad): void;
 }

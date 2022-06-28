@@ -1,12 +1,10 @@
 <?php
+
 /**
- *
  * AdService.
- *
  */
+
 namespace App\Service;
-
-
 
 use App\Entity\Ad;
 use App\Repository\AdRepository;
@@ -14,43 +12,37 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
 /**
- *
  * Class AdService.
- *
  */
 class AdService implements AdServiceInterface
 {
     /**
      * AdRepository.
      *
-     * @var AdRepository
-     *
+     * @var AdRepository Ad repository
      */
     private AdRepository $adRepository;
 
     /**
      * PaginatorInterface.
      *
-     * @var PaginatorInterface
-     *
+     * @var PaginatorInterface Paginator interface
      */
     private PaginatorInterface $paginator;
 
     /**
-     * AdCategoryInterface.
+     * AdCategoryServiceInterface.
      *
-     * @var AdCategoryServiceInterface
-     *
+     * @var AdCategoryServiceInterface Ad category service interface
      */
     private AdCategoryServiceInterface $adCategoryService;
 
     /**
      * Constructor.
      *
-     * @param AdRepository $adRepository Ad repository
-     * @param PaginatorInterface $paginator Paginator interface
+     * @param AdRepository               $adRepository      Ad repository
+     * @param PaginatorInterface         $paginator         Paginator interface
      * @param AdCategoryServiceInterface $adCategoryService Ad category service interface
-     *
      */
     public function __construct(AdRepository $adRepository, PaginatorInterface $paginator, AdCategoryServiceInterface $adCategoryService)
     {
@@ -64,12 +56,13 @@ class AdService implements AdServiceInterface
      *
      * @param int $page
      * @param array $filters
-     * @return PaginationInterface
      *
+     * @return PaginationInterface
      */
     public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
         $filters = $this->prepareFilters($filters);
+
         return $this->paginator->paginate(
             $this->adRepository->queryAll($filters),
             $page,
@@ -81,8 +74,8 @@ class AdService implements AdServiceInterface
      * Get paginated list with ads to accept.
      *
      * @param int $page
-     * @return PaginationInterface
      *
+     * @return PaginationInterface
      */
     public function getPaginatedAcceptList(int $page): PaginationInterface
     {
@@ -97,8 +90,8 @@ class AdService implements AdServiceInterface
      * Save.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function save(Ad $ad): void
     {
@@ -109,8 +102,8 @@ class AdService implements AdServiceInterface
      * Save on creation by admin.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function saveOnCreateAdm(Ad $ad): void
     {
@@ -119,11 +112,11 @@ class AdService implements AdServiceInterface
     }
 
     /**
-     * Set on creation by user.
+     * Save on creation by user.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function saveOnCreateUs(Ad $ad): void
     {
@@ -135,8 +128,8 @@ class AdService implements AdServiceInterface
      * Delete.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function delete(Ad $ad): void
     {
@@ -147,8 +140,8 @@ class AdService implements AdServiceInterface
      * Make ad visible.
      *
      * @param Ad $ad
-     * @return void
      *
+     * @return void
      */
     public function makeVisible(Ad $ad): void
     {
@@ -160,8 +153,8 @@ class AdService implements AdServiceInterface
      * Prepare filters.
      *
      * @param array $filters
-     * @return array
      *
+     * @return array
      */
     private function prepareFilters(array $filters): array
     {
@@ -175,5 +168,4 @@ class AdService implements AdServiceInterface
 
         return $resultFilters;
     }
-
 }
