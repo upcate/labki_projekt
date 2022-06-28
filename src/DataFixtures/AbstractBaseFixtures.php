@@ -55,8 +55,6 @@ abstract class AbstractBaseFixtures extends Fixture
 
     /**
      * Load data.
-     *
-     * @return void
      */
     abstract protected function loadData(): void;
 

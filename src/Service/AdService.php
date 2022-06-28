@@ -90,8 +90,6 @@ class AdService implements AdServiceInterface
      * Save.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function save(Ad $ad): void
     {
@@ -102,8 +100,6 @@ class AdService implements AdServiceInterface
      * Save on creation by admin.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function saveOnCreateAdm(Ad $ad): void
     {
@@ -115,8 +111,6 @@ class AdService implements AdServiceInterface
      * Save on creation by user.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function saveOnCreateUs(Ad $ad): void
     {
@@ -128,8 +122,6 @@ class AdService implements AdServiceInterface
      * Delete.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function delete(Ad $ad): void
     {
@@ -140,8 +132,6 @@ class AdService implements AdServiceInterface
      * Make ad visible.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function makeVisible(Ad $ad): void
     {

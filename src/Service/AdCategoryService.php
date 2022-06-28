@@ -74,8 +74,6 @@ class AdCategoryService implements AdCategoryServiceInterface
      * Save.
      *
      * @param AdCategory $adCategory AdCategory Entity
-     *
-     * @return void
      */
     public function save(AdCategory $adCategory): void
     {
@@ -91,8 +89,6 @@ class AdCategoryService implements AdCategoryServiceInterface
      * Delete.
      *
      * @param AdCategory $adCategory AdCategory Entity
-     *
-     * @return void
      */
     public function delete(AdCategory $adCategory): void
     {
@@ -112,7 +108,7 @@ class AdCategoryService implements AdCategoryServiceInterface
             $result = $this->adRepository->countByCategory($adCategory);
 
             return !($result > 0);
-        } catch (NoResultException | NonUniqueResultException) {
+        } catch (NoResultException|NonUniqueResultException) {
             return false;
         }
     }

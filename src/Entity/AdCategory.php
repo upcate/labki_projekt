@@ -101,8 +101,6 @@ class AdCategory
      * Setter for created at.
      *
      * @param DateTimeImmutable $createdAt Created at
-     *
-     * @return void
      */
     public function setCreatedAt(DateTimeImmutable $createdAt): void
     {
@@ -123,8 +121,6 @@ class AdCategory
      * Setter for updated at.
      *
      * @param DateTimeImmutable $updatedAt Updated at
-     *
-     * @return void
      */
     public function setUpdatedAt(DateTimeImmutable $updatedAt): void
     {
@@ -145,8 +141,6 @@ class AdCategory
      * Setter for name.
      *
      * @param string $name Name
-     *
-     * @return void
      */
     public function setName(string $name): void
     {
@@ -167,8 +161,6 @@ class AdCategory
      * Setter for slug.
      *
      * @param string $slug Slug
-     *
-     * @return void
      */
     public function setSlug(string $slug): void
     {

@@ -141,8 +141,6 @@ class Ad
      * Setter for is visible.
      *
      * @param int $isVisible is visible
-     *
-     * @return void
      */
     public function setIsVisible(int $isVisible): void
     {
@@ -163,8 +161,6 @@ class Ad
      * Setter for username.
      *
      * @param string $username Username
-     *
-     * @return void
      */
     public function setUsername(string $username): void
     {
@@ -185,8 +181,6 @@ class Ad
      * Setter for email.
      *
      * @param string $email Email
-     *
-     * @return void
      */
     public function setEmail(string $email): void
     {
@@ -207,8 +201,6 @@ class Ad
      * Setter for phone.
      *
      * @param string $phone Phone number
-     *
-     * @return void
      */
     public function setPhone(string $phone): void
     {
@@ -229,8 +221,6 @@ class Ad
      * Setter for created at.
      *
      * @param DateTimeImmutable|null $createdAt Created At
-     *
-     * @return void
      */
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
@@ -251,8 +241,6 @@ class Ad
      * Setter for text.
      *
      * @param string $text Text
-     *
-     * @return void
      */
     public function setText(string $text): void
     {
@@ -273,8 +261,6 @@ class Ad
      * Setter for title.
      *
      * @param string $title Title
-     *
-     * @return void
      */
     public function setTitle(string $title): void
     {
@@ -295,8 +281,6 @@ class Ad
      * Setter for updated at.
      *
      * @param DateTimeImmutable $updatedAt Updated at
-     *
-     * @return void
      */
     public function setUpdatedAt(DateTimeImmutable $updatedAt): void
     {
@@ -317,8 +301,6 @@ class Ad
      * Setter for ad category.
      *
      * @param AdCategory|null $adCategory AdCategory
-     *
-     * @return void
      */
     public function setAdCategory(?AdCategory $adCategory): void
     {

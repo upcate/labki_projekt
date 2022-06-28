@@ -12,7 +12,6 @@ namespace App\Entity\Enum;
 enum UserRole: string
 {
     case ROLE_ADMIN = 'ROLE_ADMIN';
-
     /**
      * Label.
      *

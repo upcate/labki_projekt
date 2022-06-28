@@ -68,7 +68,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
-
     /**
      * Get username.
      *
@@ -83,8 +82,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Setter for username.
      *
      * @param string $username Username
-     *
-     * @return void
      */
     public function setUsername(string $username): void
     {
@@ -119,8 +116,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Setter for roles.
      *
      * @param array $roles Roles
-     *
-     * @return void
      */
     public function setRoles(array $roles): void
     {
@@ -141,8 +136,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Setter for password.
      *
      * @param string $password Password
-     *
-     * @return void
      */
     public function setPassword(string $password): void
     {

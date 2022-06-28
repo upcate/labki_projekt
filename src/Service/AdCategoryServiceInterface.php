@@ -27,8 +27,6 @@ interface AdCategoryServiceInterface
      * Save.
      *
      * @param AdCategory $adCategory AdCategory Entity
-     *
-     * @return void
      */
     public function save(AdCategory $adCategory): void;
 
@@ -36,8 +34,6 @@ interface AdCategoryServiceInterface
      * Delete.
      *
      * @param AdCategory $adCategory AdCategory Entity
-     *
-     * @return void
      */
     public function delete(AdCategory $adCategory): void;
 

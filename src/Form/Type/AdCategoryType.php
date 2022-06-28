@@ -22,8 +22,6 @@ class AdCategoryType extends AbstractType
      *
      * @param FormBuilderInterface $builder Interface builder
      * @param array                $options Array of options
-     *
-     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -42,8 +40,6 @@ class AdCategoryType extends AbstractType
      * Configure options.
      *
      * @param OptionsResolver $resolver Option Resolver
-     *
-     * @return void
      */
     public function configureOptions(OptionsResolver $resolver): void
     {

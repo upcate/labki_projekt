@@ -17,8 +17,6 @@ interface UserServiceInterface
      * Save.
      *
      * @param User $user User Entity
-     *
-     * @return void
      */
     public function save(User $user): void;
 }

@@ -76,8 +76,6 @@ class AdRepository extends ServiceEntityRepository
      *
      * @param Ad   $entity Ad Entity
      * @param bool $flush  Flush flag
-     *
-     * @return void
      */
     public function add(Ad $entity, bool $flush = false): void
     {
@@ -93,8 +91,6 @@ class AdRepository extends ServiceEntityRepository
      *
      * @param Ad   $entity Ad Entity
      * @param bool $flush  Flush flag
-     *
-     * @return void
      */
     public function remove(Ad $entity, bool $flush = false): void
     {
@@ -130,8 +126,6 @@ class AdRepository extends ServiceEntityRepository
      * Save.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function save(Ad $ad): void
     {
@@ -143,8 +137,6 @@ class AdRepository extends ServiceEntityRepository
      * Delete.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function delete(Ad $ad): void
     {

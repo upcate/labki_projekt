@@ -54,8 +54,6 @@ class AdCategoryRepository extends ServiceEntityRepository
      *
      * @param AdCategory $entity AdCategory Entity
      * @param bool       $flush  Flush flag
-     *
-     * @return void
      */
     public function add(AdCategory $entity, bool $flush = false): void
     {
@@ -71,8 +69,6 @@ class AdCategoryRepository extends ServiceEntityRepository
      *
      * @param AdCategory $entity AdCategory Entity
      * @param bool       $flush  Flush flag
-     *
-     * @return void
      */
     public function remove(AdCategory $entity, bool $flush = false): void
     {
@@ -87,8 +83,6 @@ class AdCategoryRepository extends ServiceEntityRepository
      * Save.
      *
      * @param AdCategory $adCategory AcCategory Entity
-     *
-     * @return void
      */
     public function save(AdCategory $adCategory): void
     {
@@ -100,8 +94,6 @@ class AdCategoryRepository extends ServiceEntityRepository
      * Delete.
      *
      * @param AdCategory $adCategory AdCategory Entity
-     *
-     * @return void
      */
     public function delete(AdCategory $adCategory): void
     {

@@ -27,8 +27,6 @@ interface AdServiceInterface
      * Save.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function save(Ad $ad): void;
 
@@ -36,8 +34,6 @@ interface AdServiceInterface
      * Save on creation by admin.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function saveOnCreateAdm(Ad $ad): void;
 
@@ -45,8 +41,6 @@ interface AdServiceInterface
      * Save on creation by user.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function saveOnCreateUs(Ad $ad): void;
 
@@ -54,8 +48,6 @@ interface AdServiceInterface
      * Make ad visible.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function makeVisible(Ad $ad): void;
 
@@ -63,8 +55,6 @@ interface AdServiceInterface
      * Delete.
      *
      * @param Ad $ad Ad Entity
-     *
-     * @return void
      */
     public function delete(Ad $ad): void;
 }
